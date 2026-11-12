@@ -2,7 +2,7 @@
 
 ## Resultados publicados
 
-- [Ver dashboard online](https://agustinberna.github.io/experimentos-colaborativos/exp2.html).
+- [Ver dashboard online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html).
 - [Descargar dashboard autocontenido](resultados/dashboard_comparativo.html).
 - [Métricas por semilla](resultados/metricas_por_semilla_test.csv) y [curvas por semilla](resultados/curvas_por_semilla_test.csv).
 - [Resumen del ensamble](resultados/resumen_ensamble_test.csv) y [curvas del ensamble](resultados/curvas_ensamble_test.csv).

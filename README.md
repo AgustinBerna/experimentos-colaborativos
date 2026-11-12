@@ -7,7 +7,7 @@ Dos experimentos de imputación de valores faltantes en churn bancario, con cód
 | Experimento | Descripción | Árboles E0 | N congelado | Dashboard |
 |---|---|---:|---:|---|
 | [Exp 1 · Imputación](exp_01_imputacion/) | NaN nativo y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar](exp_01_imputacion/resultados/dashboard_comparativo.html) |
-| [Exp 2 · Indicadores de ausencia](exp_02_indicadores_missing/) | Los mismos métodos con 150 indicadores originales | 232 | 4000 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2.html) · [Descargar](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
+| [Exp 2 · Indicadores de ausencia](exp_02_indicadores_missing/) | Los mismos métodos con 150 indicadores originales | 232 | 4000 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
 
 Ambas corridas entrenan y ajustan los imputadores con **marzo–agosto de 2019**, inclusive, y evalúan **octubre de 2019**, con 30 semillas comunes por método. Conservan sus respectivas selecciones históricas; en el entrenamiento final no se repiten la optimización, el early stopping ni la validación original de agosto. En Exp2, las exclusiones se determinan con marzo–junio para conservar el esquema de variables original, aunque el entrenamiento y el ajuste de imputadores llegan a agosto.
 
@@ -23,6 +23,6 @@ Esta metodología se mantiene. Después de esa selección, el entrenamiento fina
 
 ## GitHub Pages
 
-La carpeta docs contiene la portada index.html y los dashboards exp1.html y exp2.html, todos sin dependencias externas. Los enlaces anteriores dashboard_comparativo.html y dashboard_imputacion_v3.html siguen abriendo Exp1; dashboard_indicadores_v3.html abre Exp2.
+La carpeta docs contiene la portada index.html y los dashboards exp1.html y exp2-marzo-agosto.html, todos sin dependencias externas. Los enlaces anteriores dashboard_comparativo.html y dashboard_imputacion_v3.html siguen abriendo Exp1; dashboard_indicadores_v3.html abre Exp2.
 
 El workflow de Pages publica docs al actualizar main. Si Pages no está habilitado, seleccionar **Settings → Pages → Source → GitHub Actions** una vez y ejecutar el workflow **Publicar dashboard en GitHub Pages**.
