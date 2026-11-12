@@ -9,11 +9,17 @@ Dos experimentos de imputación de valores faltantes en churn bancario, con cód
 | [Exp 1 · Imputación](exp_01_imputacion/) | NaN nativo y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar](exp_01_imputacion/resultados/dashboard_comparativo.html) |
 | [Exp 2 · Indicadores de ausencia](exp_02_indicadores_missing/) | Los mismos métodos con 150 indicadores originales | 232 | 4000 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2.html) · [Descargar](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
 
-Ambas corridas entrenan y ajustan los imputadores con **marzo–agosto de 2019**, inclusive, y evalúan **octubre de 2019**, con 30 semillas comunes por método. Conservan sus respectivas selecciones históricas; no hay nueva optimización, early stopping ni validación en agosto. En Exp2, las exclusiones se determinan con marzo–junio para conservar el esquema de variables original, aunque el entrenamiento y el ajuste de imputadores llegan a agosto.
+Ambas corridas entrenan y ajustan los imputadores con **marzo–agosto de 2019**, inclusive, y evalúan **octubre de 2019**, con 30 semillas comunes por método. Conservan sus respectivas selecciones históricas; en el entrenamiento final no se repiten la optimización, el early stopping ni la validación original de agosto. En Exp2, las exclusiones se determinan con marzo–junio para conservar el esquema de variables original, aunque el entrenamiento y el ajuste de imputadores llegan a agosto.
 
 Los nuevos paquetes de código reemplazan al pipeline histórico. En ambos experimentos, los 15 archivos de código, la configuración y la selección coinciden byte a byte con sus run_identity.json. Cada carpeta incluye los cuatro CSV de resultados, el dashboard autocontenido y un manifiesto de publicación con hashes. No se reentrenó durante esta actualización ni se verificó independientemente el hash del dataset.
 
 Cada experimento tiene sus propios hiperparámetros, cantidad de árboles y N. La comparación entre Exp1 y Exp2 es descriptiva y no aísla causalmente el efecto de los indicadores. Los p-valores por semilla no representan tests temporales independientes. Ver metodología y ejecución en los README de cada carpeta.
+
+## Búsqueda original de hiperparámetros
+
+La búsqueda original de hiperparámetros se realizó con 50 trials de Optuna solo para E0, entrenando con marzo–junio de 2019 y eligiendo por AUC en la validación de agosto. Con el mejor E0 se calculó la ganancia para todos los N de agosto y se eligió la meseta suavizada. Octubre no participó. Cada método hereda los parámetros, la iteración y N de su E0.
+
+Esta metodología se mantiene. Después de esa selección, el entrenamiento final y el ajuste de imputadores se amplían a marzo–agosto, reutilizando los hiperparámetros, árboles y N elegidos.
 
 ## GitHub Pages
 

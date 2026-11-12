@@ -1,7 +1,7 @@
 {
   "experiment": "exp_01_imputacion",
   "original_html_sha256": "1705b8394be4ca583e4528778252dfa411bd1fd163f79413126d282b9ae77ba9",
-  "published_html_sha256": "cdb858c4ade662a9eb2366be0c345177fc26f84566a6f1056483b93605662fca",
+  "published_html_sha256": "f6c9558106031a8ee22a88c8498d24ee3a58fd7a880441b0d302692211cb1100",
   "dependencies_sha256": {
     "lib/htmlwidgets-1.6.4/htmlwidgets.js": "4578d2a0732228ac3381eb2b3dfd81d30dc1d8000beb96a1b20e4f2088b2b9a4",
     "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
@@ -34,7 +34,8 @@
     "Dependencias JavaScript y CSS embebidas",
     "Tabla completa sin paginación",
     "Métodos: entrenamiento e imputadores marzo-agosto; selección histórica congelada",
-    "Idioma español y viewport adaptable"
+    "Idioma español y viewport adaptable",
+    "Se conserva la metodología original de búsqueda: Optuna E0, train marzo-junio, validación agosto y N elegido en agosto; diferenciada del entrenamiento final marzo-agosto"
   ],
   "results_sha256": {
     "curvas_por_semilla_test.csv": "0e82f5a5b7167bcd0bbcf688ef12f1c814720a6e378afd5fbcd63f64368f7531",

@@ -1,6 +1,6 @@
 {
   "original_html_sha256": "00c6c6733f097af905fc551f3ac6adc80ded4f3ebfea11a94d297c1286068730",
-  "published_html_sha256": "6c3f49ca355e3bd407db9e7b2d156ccd3039abc4eb9023c0aa29ba82b76bfac5",
+  "published_html_sha256": "d307d50ace306f9684681a3451317e79d8a7de99a85c2ecf345578d16a67f181",
   "dependencies_sha256": {
     "lib/htmlwidgets-1.6.4/htmlwidgets.js": "4578d2a0732228ac3381eb2b3dfd81d30dc1d8000beb96a1b20e4f2088b2b9a4",
     "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
@@ -23,7 +23,8 @@
   "transformations": [
     "Dependencias locales embebidas",
     "Tabla sin paginación",
-    "Métodos y meses explicitados; idioma español y viewport adaptable"
+    "Métodos y meses explicitados; idioma español y viewport adaptable",
+    "Se conserva la metodología original de búsqueda: Optuna E0, train marzo-junio, validación agosto y N elegido en agosto; diferenciada del entrenamiento final marzo-agosto"
   ],
   "experiment": "exp_02_indicadores_missing",
   "methods": [
