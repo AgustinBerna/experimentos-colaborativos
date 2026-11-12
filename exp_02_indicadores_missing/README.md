@@ -1,34 +1,29 @@
-# Exp 2 · Indicadores de missing
+# Exp 2 · Imputación con indicadores de ausencia
 
-Agrega un indicador `__ausente` para cada una de las 150 variables originales, calculado antes de imputar. Los indicadores se conservan en todos los métodos y no generan lags/deltas propios.
+## Resultados publicados
 
-## Resultados de esta corrida
+- [Ver dashboard online](https://agustinberna.github.io/experimentos-colaborativos/exp2.html).
+- [Descargar dashboard autocontenido](resultados/dashboard_comparativo.html).
+- [Métricas por semilla](resultados/metricas_por_semilla_test.csv) y [curvas por semilla](resultados/curvas_por_semilla_test.csv).
+- [Resumen del ensamble](resultados/resumen_ensamble_test.csv) y [curvas del ensamble](resultados/curvas_ensamble_test.csv).
+- [Tabla del dashboard](resultados/resumen_dashboard.csv), [identidad de la corrida](run_identity.json) y [manifiesto de publicación](resultados/manifiesto_publicacion.json).
 
-- [Dashboard comparativo autocontenido](resultados/dashboard_comparativo.html): descargar y abrir en el navegador; funciona sin `lib/` ni conexión.
-- [Selección E0 de esta corrida](seleccion.json): AUC de validación 0.937965342, **232 iteraciones** y **N=4000**.
-- [Resumen numérico del dashboard](resultados/resumen_dashboard.csv): exportado de la tabla HTML, sin volver a entrenar ni recalcular resultados.
-- [Manifiesto de publicación](resultados/manifiesto_publicacion.json): hashes del código, selección, HTML original, recursos embebidos y HTML publicado.
+## Métodos y meses
 
-El dashboard conserva las métricas y los datos de todos los gráficos del HTML suministrado. Se integraron JavaScript, CSS e imágenes de las dependencias locales; se muestra la tabla completa de los siete métodos sin paginación.
+Entrenamiento final e imputadores ajustados con **marzo a agosto de 2019**, inclusive. Test: **octubre de 2019**, con 30 semillas comunes por método. Se conserva la selección histórica de Exp2: **232 árboles y N=4000**. No se ejecutan Optuna, early stopping ni nueva validación; agosto forma parte del entrenamiento final. Las métricas de seleccion.json pertenecen a la validación histórica y no a esta corrida.
 
-## Protocolo
+E0: NaN nativo; E1: media; E2: mediana; E3: moda; E4: forward fill causal por cliente; E5: IterativeImputer/BayesianRidge (60.000 filas, 10 rondas, 25 vecinas); E06: miceforest/LightGBM (5 rondas, 100 iteraciones por variable, 5 donantes). Media, mediana, moda, Ridge y miceforest se ajustan con marzo–agosto. Forward fill usa solo la historia disponible de cada cliente. Octubre no ajusta imputadores.
 
-Train completo marzo–junio de 2019; validación agosto; test octubre. Target binario BAJA+1/BAJA+2; ganancia sólo para BAJA+2 (+$1.072.500 por acierto, −$27.500 por los demás contactos). Imputación de variables base antes de lags/deltas 1 y 2. Auditoría común de variables mes a mes con 100% ceros a null y exclusión de variables sin información en entrenamiento.
+La imputación de variables base precede a los lags y deltas 1 y 2. Enero/febrero aportan lags para marzo; septiembre aporta historia para octubre y noviembre/diciembre permiten etiquetar octubre. Esos meses no entran al entrenamiento.
 
-E0: NaN nativo; E1: media; E2: mediana; E3: moda; E4: forward fill causal por cliente; E5: IterativeImputer/BayesianRidge (60.000 filas, 10 rondas, 25 vecinas); E06: miceforest/LightGBM (5 rondas, 100 iteraciones por variable, 5 donantes). Ver configuración exacta en [config.json](config.json).
+Los 150 indicadores originales de ausencia se calculan antes de imputar, se conservan intactos y no tienen lags/deltas propios. Las exclusiones se determinan con marzo–junio para mantener el esquema de la selección histórica.
 
-La configuración del código contempla 50 trials de Optuna sólo para E0, elegidos por AUC de agosto. Cada método hereda sus parámetros, iteración y N. La evaluación publicada contiene 30 semillas comunes por método. Los p-valores del dashboard se conservan como parte del artefacto recibido; las semillas comparten clientes y mes, por lo que no representan 30 muestras independientes de población ni 30 tests temporales.
+Target binario BAJA+1/BAJA+2; ganancia para BAJA+2 (+$1.072.500 por acierto; −$27.500 por los demás contactos). Wilcoxon pareado por semilla con ajuste Holm dentro de cada métrica. Las semillas comparten clientes y mes: no representan tests temporales independientes.
 
-## Reproducir una ejecución nueva
+## Código, ejecución y procedencia
 
-Desde esta carpeta, con Python 3.13.9 y las dependencias de `requirements.txt`, más R y los paquetes de `install_r_packages.R` para generar el dashboard:
+El código de Exp2_indicadores_marzo_agosto_GCP.zip reemplaza al pipeline histórico. Los **15 archivos de código, config.json y seleccion.json coinciden byte a byte** con los hashes declarados en run_identity.json. El entorno registrado es Python 3.14.4. No se verificó independientemente el hash del dataset y no se reentrenó durante esta publicación.
 
-```bash
-python -m pip install -r requirements.txt
-Rscript install_r_packages.R
-python run_pipeline.py --data /ruta/competencia_02_crudo.csv --work /ruta/nueva/corrida_exp_02_indicadores_missing --step all
-```
+[EJECUCION_PAQUETE.md](EJECUCION_PAQUETE.md) conserva el README original del ZIP y sus instrucciones de ejecución. SHA256.json es el manifiesto original del paquete: su entrada README.md corresponde al archivo archivado aquí como EJECUCION_PAQUETE.md. Los tests heredados del repositorio histórico no certifican esta variante con selección congelada.
 
-La ejecución nueva guarda su propia optimización y sus checkpoints en `--work`; el `seleccion.json` de esta carpeta es el registro de la corrida publicada y no sustituye automáticamente esa optimización. Para autocontener el nuevo HTML de R: `python ../herramientas/autocontener_dashboard.py /ruta/nueva/corrida/resultados/dashboard_comparativo.html /ruta/dashboard_autocontenido.html`.
-
-El código se copió de `imputacion_v3_indicadores`. Sin el `run_identity.json` original no se certifica por hash que sea exactamente el código ejecutado al generar estos resultados. No se incluyen el dataset, modelos, predicciones individuales ni entornos. Los originales locales permanecen intactos.
+No se publican el dataset, modelos ni predicciones individuales.

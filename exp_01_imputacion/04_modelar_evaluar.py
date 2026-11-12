@@ -19,7 +19,6 @@ from pathlib import Path
 import numpy as np
 import polars as pl
 import lightgbm as lgb
-import optuna
 from sklearn.metrics import roc_auc_score, average_precision_score
 from scipy.stats import wilcoxon
 from src.remote import snapshot_sqlite, upload, upload_files_then_marker
@@ -126,111 +125,7 @@ def compute_curves_and_metrics(y_bin: np.ndarray, y_baja2: np.ndarray, ids: np.n
 
 
 def optimize_lgbm(X_tr, y_tr, X_va, y_va, yb2_va, ids_va, opt_dir: Path, config: dict, method: str, n_jobs: int) -> dict:
-    """Ejecuta Optuna en 201903-201906 validando AUC en 201908 y guarda seleccion.json."""
-    opt_dir.mkdir(parents=True, exist_ok=True)
-    opt_done = opt_dir / "DONE.json"
-    sel_file = opt_dir / "seleccion.json"
-    curve_file = opt_dir / "curva_ganancia_valid_e0.csv"
-
-    if opt_done.exists() and sel_file.exists() and curve_file.exists():
-        logging.info("[%s] Optimización ya completada en %s", method, sel_file)
-        return json.loads(sel_file.read_text(encoding="utf-8"))
-    if opt_done.exists():
-        raise RuntimeError("Checkpoint E0 incompleto: falta selección o curva de validación")
-
-    opt_cfg = config["optimization"]
-    sp = opt_cfg["search_space"]
-
-    storage_url = f"sqlite:///{opt_dir / 'study.sqlite3'}"
-    study = optuna.create_study(study_name=f"lgbm_{method}", storage=storage_url, direction="maximize", load_if_exists=True)
-    completed_trials = len([t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE])
-    remaining = max(0, opt_cfg["trials"] - completed_trials)
-    logging.info("[%s] Optuna BO: %d trials listos, faltan %d", method, completed_trials, remaining)
-
-    ds_params = {"feature_pre_filter": False}
-    dtrain = lgb.Dataset(X_tr, label=y_tr, params=ds_params, free_raw_data=False)
-    dvalid = lgb.Dataset(X_va, label=y_va, reference=dtrain, params=ds_params, free_raw_data=False)
-    dtrain.construct()
-
-    def objective(trial: optuna.Trial):
-        params = {
-            "objective": "binary",
-            "metric": "auc",
-            "boosting_type": "gbdt",
-            "first_metric_only": True,
-            "boost_from_average": True,
-            "feature_pre_filter": False,
-            "verbosity": -1,
-            "n_jobs": n_jobs,
-            "seed": config["seeds"][0],
-            "bagging_freq": int(opt_cfg["bagging_freq"]),  # Fijo >= 1 según consigna
-            "num_leaves": trial.suggest_int("num_leaves", sp["num_leaves"][0], sp["num_leaves"][1]),
-            "learning_rate": trial.suggest_float("learning_rate", sp["learning_rate"][0], sp["learning_rate"][1], log=True),
-            "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", sp["min_data_in_leaf"][0], sp["min_data_in_leaf"][1]),
-            "feature_fraction": trial.suggest_float("feature_fraction", sp["feature_fraction"][0], sp["feature_fraction"][1]),
-            "bagging_fraction": trial.suggest_float("bagging_fraction", sp["bagging_fraction"][0], sp["bagging_fraction"][1]),
-        }
-        gbm = lgb.train(
-            params,
-            dtrain,
-            num_boost_round=opt_cfg["num_boost_round"],
-            valid_sets=[dvalid],
-            callbacks=[lgb.early_stopping(opt_cfg["early_stopping_rounds"], verbose=False)]
-        )
-        preds_va = gbm.predict(X_va, num_iteration=gbm.best_iteration)
-        auc_val = float(roc_auc_score(y_va, preds_va))
-        trial.set_user_attr("best_iteration", int(gbm.best_iteration))
-        return auc_val
-
-    if remaining > 0:
-        # Optuna commits the trial before invoking this callback. A consistent
-        # SQLite snapshot on GCS lets a new Spot VM continue at the next trial.
-        study.optimize(objective, n_trials=remaining,
-                       callbacks=[lambda _study, _trial: snapshot_sqlite(opt_dir / "study.sqlite3")])
-
-    # Elegir N solo con E0 en validación, antes de mirar octubre.
-    if method != "E0":
-        raise ValueError("Optuna y la selección de N pertenecen exclusivamente a E0")
-    best_params = study.best_params
-    best_iter = int(study.best_trial.user_attrs["best_iteration"])
-    final_params = {
-        "objective": "binary", "metric": "auc", "boosting_type": "gbdt",
-        "verbosity": -1, "n_jobs": n_jobs, "seed": config["seeds"][0],
-        "bagging_freq": int(opt_cfg["bagging_freq"]), **best_params
-    }
-    gbm_best = lgb.train(final_params, dtrain, num_boost_round=best_iter)
-    preds_va_best = gbm_best.predict(X_va)
-    order_va = np.lexsort((ids_va, -preds_va_best))
-    cum_gain_va = np.r_[0, np.cumsum(np.where(yb2_va[order_va] == 1,
-                                config["gain"]["tp_value"], config["gain"]["fp_value"]))]
-    # La meseta se evalúa en agosto con E0: promedio de la ganancia acumulada
-    # entre N-500 y N+500 envíos (radio configurable). Empates: menor N.
-    radius = int(config["gain"]["smoothing_radius_n"])
-    n_selected_valid, smooth_gain = select_n_from_plateau(cum_gain_va, radius)
-    # Guardar los 131k+ puntos de agosto, no sólo el N ganador. El dashboard
-    # puede mostrar la meseta y la caída posterior sin consultar octubre.
-    smooth_all = smooth_gain_curve(cum_gain_va, radius)
-    pl.DataFrame({"envios": np.arange(len(cum_gain_va), dtype=np.int32),
-                  "ganancia": cum_gain_va, "ganancia_suavizada": smooth_all}).write_csv(curve_file)
-
-    best_info = {
-        "source_method": method,
-        "best_auc_valid": float(study.best_value),
-        "best_iteration": best_iter,
-        "n_selected_valid": n_selected_valid,
-        "gain_valid_at_n": float(cum_gain_va[n_selected_valid]),
-        "gain_valid_smoothed_at_n": smooth_gain,
-        "smoothing_radius_n": radius,
-        "n_raw_max_valid": int(np.argmax(cum_gain_va)),
-        "best_params": best_params
-    }
-    sel_file.write_text(json.dumps(best_info, indent=2), encoding="utf-8")
-    opt_done.write_text(json.dumps({"status": "done"}), encoding="utf-8")
-    upload_files_then_marker([sel_file, curve_file], opt_done)
-
-    del dtrain, dvalid
-    gc.collect()
-    return best_info
+    raise RuntimeError("Optimización deshabilitada en esta variante")
 
 
 def run_method(work: Path, config: dict, method: str, baseline_selection: dict | None, n_jobs: int):
@@ -244,21 +139,13 @@ def run_method(work: Path, config: dict, method: str, baseline_selection: dict |
     opt_dir = work / method / "optimization"
     opt_cfg = config["optimization"]
 
-    # Solo E0 ajusta Optuna y elige N con agosto; los demás heredan ambos.
-    if method == "E0":
-        X_va, y_va, yb2_va, ids_va, _ = load_xy(work / method / "prepared" / "valid.parquet")
-        best_info = optimize_lgbm(X_tr, y_tr, X_va, y_va, yb2_va, ids_va, opt_dir, config, method, n_jobs)
-        del X_va, y_va, yb2_va, ids_va
-        gc.collect()
-    else:
-        if baseline_selection is None or baseline_selection.get("source_method") != "E0":
-            raise RuntimeError("E0 debe optimizarse primero y fijar N en validación")
-        opt_dir.mkdir(parents=True, exist_ok=True)
-        best_info = baseline_selection
-        (opt_dir / "seleccion.json").write_text(json.dumps(best_info, indent=2), encoding="utf-8")
-        (opt_dir / "DONE.json").write_text(json.dumps({"status": "inherited_from_E0"}), encoding="utf-8")
-        logging.info("[%s] Usando hiperparámetros congelados de E0 (iter=%d, N=%d)",
-                     method, best_info["best_iteration"], best_info["n_selected_valid"])
+    # Published Exp1 selection: no optimization or validation fitting.
+    best_info = json.loads((Path(__file__).resolve().parent / "seleccion.json").read_text(encoding="utf-8"))
+    if best_info["source_method"] != "E0" or best_info["best_iteration"] != 280 or best_info["n_selected_valid"] != 4323:
+        raise ValueError("La selección publicada de Exp1 no coincide")
+    opt_dir.mkdir(parents=True, exist_ok=True)
+    (opt_dir / "seleccion.json").write_text(json.dumps(best_info, indent=2), encoding="utf-8")
+    (opt_dir / "DONE.json").write_text(json.dumps({"status": "frozen_from_published_Exp1_no_optimization"}), encoding="utf-8")
 
     # Write the same E0 decision before any October scoring. A restart checks
     # that neither best hyperparameters nor N changed mid-run.
@@ -425,7 +312,7 @@ def main():
     df_ens_c.write_csv(res_dir / "curvas_ensamble_test.csv")
 
     final_marker = res_dir / "FINALIZADO.json"
-    final_marker.write_text(json.dumps({"methods": methods, "bo_mode": args.bo_mode, "status": "ok"}, indent=2), encoding="utf-8")
+    final_marker.write_text(json.dumps({"methods": methods, "bo_mode": "frozen_published_Exp1", "status": "ok"}, indent=2), encoding="utf-8")
     upload_files_then_marker([res_dir / name for name in (
         "metricas_por_semilla_test.csv", "curvas_por_semilla_test.csv",
         "resumen_ensamble_test.csv", "curvas_ensamble_test.csv")], final_marker)
@@ -434,3 +321,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

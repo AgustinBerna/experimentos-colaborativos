@@ -7,7 +7,7 @@ Uso:
 
 Proceso paso a paso:
   1. Carga partition/panel_2019.parquet.
-  2. Filtra exclusivamente los meses de entrenamiento (201903 a 201906) para hacer el .fit()
+  2. Filtra exclusivamente los meses de entrenamiento (201903 a 201908) para hacer el .fit()
      del SimpleImputer de scikit-learn (evitando data leakage de validación y test).
   3. Transforma todos los meses con los estadísticos aprendidos en train.
   4. Calcula lag_1, lag_2, delta_1 y delta_2 y escribe <method>/prepared/DONE.json.
@@ -48,7 +48,7 @@ def main():
     df = pl.read_parquet(work / "partition" / "panel_2019.parquet")
     fcols = get_feature_cols(df, config)
 
-    # Extraer matriz de entrenamiento (201903-201906) para ajustar el imputador sin leakage
+    # Extraer matriz de entrenamiento (201903-201908) para ajustar el imputador sin leakage
     train_mask = (df["partition_role"] == "train").to_numpy()
     X_all = df.select(fcols).to_numpy().astype(np.float32)
 
@@ -74,3 +74,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

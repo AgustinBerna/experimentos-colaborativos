@@ -58,3 +58,4 @@ def build_lags_deltas_and_save(df_imputed: pl.DataFrame, feature_cols: list[str]
         "total_columns": df_full.width
     }, indent=2), encoding="utf-8")
     logging.info("[%s] Checkpoint escrito en %s", method, done_path)
+

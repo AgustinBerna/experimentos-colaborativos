@@ -74,7 +74,7 @@ def main():
     # enero/febrero que alimentan sus lags. Se excluyen para TODOS los métodos
     # antes de imputar y generar variables temporales.
     drop_features = config["drop_features_without_history"]
-    history_months = sorted(set(config["train_months"] + [201901, 201902]))
+    history_months = [201901, 201902, 201903, 201904, 201905, 201906]
     history = df.filter(pl.col(time_col).is_in(history_months))
     exclusions = []
     for col in drop_features:
@@ -200,3 +200,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

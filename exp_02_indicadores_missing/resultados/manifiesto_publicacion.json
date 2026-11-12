@@ -1,23 +1,31 @@
 {
-  "original_html_sha256": "492c50ce9507dc37cb6e935fdadf9ee9d54d39cec07899f874c9de96d261e9f9",
-  "published_html_sha256": "67659cfabbf927e07a12f0938811dd08d4227a7ecd64207f3f3705667779d9aa",
+  "original_html_sha256": "00c6c6733f097af905fc551f3ac6adc80ded4f3ebfea11a94d297c1286068730",
+  "published_html_sha256": "6c3f49ca355e3bd407db9e7b2d156ccd3039abc4eb9023c0aa29ba82b76bfac5",
   "dependencies_sha256": {
     "lib/htmlwidgets-1.6.4/htmlwidgets.js": "4578d2a0732228ac3381eb2b3dfd81d30dc1d8000beb96a1b20e4f2088b2b9a4",
+    "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
+    "lib/jquery-3.6.0/jquery-3.6.0.min.js": "ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e",
+    "lib/dt-core-1.13.6/js/jquery.dataTables.min.js": "24362c145a81e1e2fd95185c4300d2595afb2cadd9f1580c2ddce95bc19b2084",
+    "lib/crosstalk-1.2.2/js/crosstalk.min.js": "abd7f07e2e8acbe5ba7aa3dc76712efaece662fb65560fbbcb3e8fb1df66b2e9",
     "lib/plotly-binding-4.12.1/plotly.js": "56288752cfa1613e53ced81ac2769ba23674feebf32cbd171ff5f22a747077e9",
     "lib/typedarray-0.1/typedarray.min.js": "d95dda2a9a0ac6d74f2a473074b9d613b5a43a83b1dbc8590c247d9da1e22b3b",
-    "lib/jquery-3.6.0/jquery-3.6.0.min.js": "ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e",
-    "lib/crosstalk-1.2.2/js/crosstalk.min.js": "abd7f07e2e8acbe5ba7aa3dc76712efaece662fb65560fbbcb3e8fb1df66b2e9",
     "lib/plotly-main-2.25.2/plotly-latest.min.js": "419deebe105f4c993feb7e6d1fe94fb1c2f7f98716db5d9b8fe3e37773838898",
-    "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
-    "lib/dt-core-1.13.6/js/jquery.dataTables.min.js": "24362c145a81e1e2fd95185c4300d2595afb2cadd9f1580c2ddce95bc19b2084",
     "lib/htmltools-fill-0.5.9/fill.css": "0f41825dd6d8bb9923f39a10cd5de929daf009243c64e3e30fc008e45b8c3325",
-    "lib/crosstalk-1.2.2/css/crosstalk.min.css": "47bfd8c2b16c29c0c5d03656963e26730f7c566f8f7ea9dd4448bbaaca09ca0d",
-    "lib/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css": "44356da5c42f304af74d60ee75225f216d5241f353f07fdef30c99536e103d9b",
     "lib/datatables-css-0.0.0/datatables-crosstalk.css": "307bdda9489717def72ee62ace5d657c53aba18d04e572306b0899b58d5ef0d2",
     "lib/dt-core-1.13.6/css/jquery.dataTables.min.css": "5e9bf0ca99854ef5cde954de1b15f0410c38d658d8a8f9048003911aa6b36b26",
-    "lib/dt-core-1.13.6/css/jquery.dataTables.extra.css": "d09c0bac7716c2864745996c76abb5342e50f6a87f395b6cf98ccf79aea41714"
+    "lib/dt-core-1.13.6/css/jquery.dataTables.extra.css": "d09c0bac7716c2864745996c76abb5342e50f6a87f395b6cf98ccf79aea41714",
+    "lib/crosstalk-1.2.2/css/crosstalk.min.css": "47bfd8c2b16c29c0c5d03656963e26730f7c566f8f7ea9dd4448bbaaca09ca0d",
+    "lib/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css": "44356da5c42f304af74d60ee75225f216d5241f353f07fdef30c99536e103d9b"
   },
-  "widgets": 8,
+  "widgets": 7,
+  "all_widget_data_preserved": true,
+  "unresolved_dependencies": [],
+  "transformations": [
+    "Dependencias locales embebidas",
+    "Tabla sin paginación",
+    "Métodos y meses explicitados; idioma español y viewport adaptable"
+  ],
+  "experiment": "exp_02_indicadores_missing",
   "methods": [
     "E0 · NaN nativo",
     "E06 · miceforest",
@@ -27,121 +35,113 @@
     "E4 · Forward fill",
     "E5 · Ridge 60k/10/25"
   ],
-  "all_widget_data_preserved": true,
-  "unresolved_dependencies": [],
-  "transformations": [
-    "JavaScript, CSS y recursos CSS locales embebidos",
-    "Tabla sin paginación: siete métodos visibles; mismas métricas"
-  ],
-  "summary_csv_source": "Tabla embebida en el HTML original; no es una nueva corrida",
-  "source_folder": "imputacion_v3_indicadores",
-  "experiment": "exp_02_indicadores_missing",
-  "selection_sha256": "6d184a98ec0ea8f0b8d769faf34264e934ae6164e403af114afaf013422e35bf",
-  "selection_matches_requested_file": true,
-  "n_verified_from_test_curves": 4000,
   "code_files": [
     {
       "file": "01_auditar.py",
-      "source_sha256": "b888c0e81d711d2d3afa7daf1955476d1e3e580b629f2678956f0c6210d7443f",
-      "published_sha256": "b888c0e81d711d2d3afa7daf1955476d1e3e580b629f2678956f0c6210d7443f"
+      "run_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "published_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "matches": true
     },
     {
       "file": "02_particionar.py",
-      "source_sha256": "deb0921f13e3607216c598c0b6bd7872786de0cd83e80f22e2c0ad3c0e6cbbf3",
-      "published_sha256": "deb0921f13e3607216c598c0b6bd7872786de0cd83e80f22e2c0ad3c0e6cbbf3"
+      "run_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "published_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "matches": true
     },
     {
       "file": "03_imputar_baseline.py",
-      "source_sha256": "48c675662d46f680cb2a34a00d63d536e58d28fce112210d494c0c10843b801a",
-      "published_sha256": "48c675662d46f680cb2a34a00d63d536e58d28fce112210d494c0c10843b801a"
+      "run_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "published_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "matches": true
     },
     {
       "file": "03_imputar_miceforest.py",
-      "source_sha256": "ddf9db215c7d2f57bf49dd9addd3a8f60d832f400de2b65583bd26e1052b8180",
-      "published_sha256": "ddf9db215c7d2f57bf49dd9addd3a8f60d832f400de2b65583bd26e1052b8180"
+      "run_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "published_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "matches": true
     },
     {
       "file": "03_imputar_multivariada.py",
-      "source_sha256": "bdf4ba560ab3171b57c2f4a6ccafa0684c2ce09254f81bd40da2b975aa89c622",
-      "published_sha256": "bdf4ba560ab3171b57c2f4a6ccafa0684c2ce09254f81bd40da2b975aa89c622"
+      "run_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "published_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "matches": true
     },
     {
       "file": "03_imputar_temporal.py",
-      "source_sha256": "3d8675910e368a5eb72780865b415b2d719c4c94bd41cfb7ae53e3402828f897",
-      "published_sha256": "3d8675910e368a5eb72780865b415b2d719c4c94bd41cfb7ae53e3402828f897"
+      "run_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "published_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "matches": true
     },
     {
       "file": "03_imputar_univariada.py",
-      "source_sha256": "7520ea4ce240fcd710151554acd4608f402bb95d611bbeb10b69b1b5cda2d2f9",
-      "published_sha256": "7520ea4ce240fcd710151554acd4608f402bb95d611bbeb10b69b1b5cda2d2f9"
+      "run_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "published_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "matches": true
     },
     {
       "file": "04_modelar_evaluar.py",
-      "source_sha256": "7ffb4a417a23aefaa26ccf7ea649f62bb6de9dc0e84b3d3a4e66d3f15ca0fb10",
-      "published_sha256": "7ffb4a417a23aefaa26ccf7ea649f62bb6de9dc0e84b3d3a4e66d3f15ca0fb10"
+      "run_sha256": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
+      "published_sha256": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
+      "matches": true
     },
     {
       "file": "05_estado.py",
-      "source_sha256": "5a9b03389b5dad87cdde972f851259c46b72880c9744596bb1b9b9dc93f962fa",
-      "published_sha256": "5a9b03389b5dad87cdde972f851259c46b72880c9744596bb1b9b9dc93f962fa"
-    },
-    {
-      "file": "config.json",
-      "source_sha256": "2f6fcde7c849455456c79d7cccc5ff4dab0589513da4c144f837526f6f9e25fd",
-      "published_sha256": "2f6fcde7c849455456c79d7cccc5ff4dab0589513da4c144f837526f6f9e25fd"
+      "run_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "published_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "matches": true
     },
     {
       "file": "dashboard.R",
-      "source_sha256": "ac28fb6f3b9ef5a3825e95885af8edf309740fa78c15255bdc56e258ce06f98d",
-      "published_sha256": "ac28fb6f3b9ef5a3825e95885af8edf309740fa78c15255bdc56e258ce06f98d"
+      "run_sha256": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
+      "published_sha256": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
+      "matches": true
     },
     {
       "file": "install_r_packages.R",
-      "source_sha256": "4f788191befccc7086c739c51c3541c8326bb3671edcfe0e54e8c7b419ccc5f7",
-      "published_sha256": "4f788191befccc7086c739c51c3541c8326bb3671edcfe0e54e8c7b419ccc5f7"
+      "run_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "published_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "matches": true
     },
     {
       "file": "requirements.txt",
-      "source_sha256": "a8896c93b2e63608f88c595d3d1a095fa19b957a4f37cb0901abc711692d78f9",
-      "published_sha256": "a8896c93b2e63608f88c595d3d1a095fa19b957a4f37cb0901abc711692d78f9"
+      "run_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "published_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "matches": true
     },
     {
       "file": "run_pipeline.py",
-      "source_sha256": "537cb2ff131b48e53b38cc30d0da93234845f542a92837d77a6634ca661db8c0",
-      "published_sha256": "537cb2ff131b48e53b38cc30d0da93234845f542a92837d77a6634ca661db8c0"
+      "run_sha256": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
+      "published_sha256": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
+      "matches": true
     },
     {
       "file": "src/fe_imputacion.py",
-      "source_sha256": "3dab8c03d451d0602cfdbeef4e3819af4e57d98795b7ed8779235e0fb1f0d390",
-      "published_sha256": "3dab8c03d451d0602cfdbeef4e3819af4e57d98795b7ed8779235e0fb1f0d390"
+      "run_sha256": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
+      "published_sha256": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
+      "matches": true
     },
     {
       "file": "src/remote.py",
-      "source_sha256": "0688909dd9b7f9492cebd2654a744f5d64e6629870beab994fc3cd9982828426",
-      "published_sha256": "0688909dd9b7f9492cebd2654a744f5d64e6629870beab994fc3cd9982828426"
-    },
-    {
-      "file": "tests/test_dashboard.py",
-      "source_sha256": "c0df60cd913eb1ac3a65aeb8bd4ef8ef9e9f87901a697dc218378a62d14e3ca2",
-      "published_sha256": "c0df60cd913eb1ac3a65aeb8bd4ef8ef9e9f87901a697dc218378a62d14e3ca2"
-    },
-    {
-      "file": "tests/test_exclusion.py",
-      "source_sha256": "22a4ef582bc8cc79bbe68d8673abfd7c78837ae222c0602237bb12b953ed81ca",
-      "published_sha256": "22a4ef582bc8cc79bbe68d8673abfd7c78837ae222c0602237bb12b953ed81ca"
-    },
-    {
-      "file": "tests/test_imputadores.py",
-      "source_sha256": "9d91eba03adf96139b981d4d6fb309efecdbee434707a4e64e2e8b70df9b9940",
-      "published_sha256": "9d91eba03adf96139b981d4d6fb309efecdbee434707a4e64e2e8b70df9b9940"
-    },
-    {
-      "file": "tests/test_model_flow.py",
-      "source_sha256": "b4ddbc43751ce090e1201a282425dab194227b4863f523b6b3c4a76ec14b7ca3",
-      "published_sha256": "b4ddbc43751ce090e1201a282425dab194227b4863f523b6b3c4a76ec14b7ca3"
+      "run_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "published_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "matches": true
     }
   ],
+  "run_identity_provided": true,
+  "run_identity_verified": true,
+  "run_identity_verification_scope": "Coincidencia byte a byte de los 15 archivos de código, config.json y seleccion.json con los hashes declarados. Dataset no disponible para verificación independiente.",
+  "config_sha256": "c82a914b63f8a35475b2131e99a8a37a24d65896c77f49e2f4c1bde42c66a200",
+  "selection_sha256": "0906121cbe47ecd3b8f7eb039e541d571f5f025ea0c5b5fe4db59373e84fdf49",
+  "selection_matches_run_identity": true,
+  "run_identity_sha256": "a48b0104f41b19c1b5842288eaeb3ae71bb7e3333af4643cf494fb6cca1a02ed",
+  "data_sha256_declared": "6c3ec2fb4d94521c0c3cc72988c4019c8b65a157d81e0f3b6d7e1b87e0c306f4",
+  "dataset_hash_independently_verified": false,
+  "provenance_limit": "La identidad suministrada coincide con el código, configuración y selección publicados. No se reentrenó ni se verificó independientemente el hash del dataset.",
   "new_training_executed": false,
-  "run_identity_verified": false,
-  "provenance_limit": "Código y artefactos suministrados localmente. Sin manifiesto de la ejecución original que certifique por hash el código ejecutado."
+  "results_sha256": {
+    "curvas_por_semilla_test.csv": "b09e2ff7b95ee38a0aef94cf167338322885135cad02f01398704efa3dadefa6",
+    "metricas_por_semilla_test.csv": "861152c922367551ee0cf87416b6fe2b31b74a0b52f7271b13c72c4c47e51311",
+    "resumen_ensamble_test.csv": "4d73c1f06309fd8d36780a5f3f08c7f875d7f0e4306847cea0eb7c4b6d91a0d9",
+    "curvas_ensamble_test.csv": "18396a188dc2a09a3153e84775bd9318e6be207e61ffe3b9d5e1f8ee59343971"
+  }
 }

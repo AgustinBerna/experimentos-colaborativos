@@ -1,0 +1,20 @@
+{
+  "01_auditar.py": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+  "02_particionar.py": "5a0a1fb715cd7afe215bd2447d5bfe464e2add8fdccc9f8aa487f602c2bd5a9b",
+  "03_imputar_baseline.py": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+  "03_imputar_miceforest.py": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+  "03_imputar_multivariada.py": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+  "03_imputar_temporal.py": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+  "03_imputar_univariada.py": "7da0d04587d156f8d76ac06184c0b8af7bf3e6549bd94e39282228d803766f29",
+  "04_modelar_evaluar.py": "f51a6fd90e9e2d8f5dd93b59af2304cca49d7cfb1e6f01615500d98b6303afcc",
+  "05_estado.py": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+  "config.json": "e8c038623fa66ed285b14755bd92f7e1e0757713ea804265f9642e7b517eb7a8",
+  "dashboard.R": "c439c77710431821070bf0d03f357a08b395fcd385904431ba07586d91716e3c",
+  "install_r_packages.R": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+  "README.md": "99d02f57d250926ea396b0c730c3815692eb7ccf352dd3aae9ce985105c7c08b",
+  "requirements.txt": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+  "run_pipeline.py": "8fb6a1835e0295426352048c52829fd58c249954e05f85d9a81e8858832648e0",
+  "seleccion.json": "be509e137eda82a75e983d2ffba19e8c608d8da4eaa9a605ce435016359e89d6",
+  "src\\fe_imputacion.py": "bc4923efebf936fd22e59ffb0c7c6e47f050c4be81be56506fdcde76418c5e0e",
+  "src\\remote.py": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d"
+}

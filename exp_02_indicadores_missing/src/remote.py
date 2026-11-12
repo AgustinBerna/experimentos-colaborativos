@@ -84,3 +84,4 @@ def sync_stage(work: Path):
     for marker in sorted(markers, key=lambda path: (-len(path.parts), str(path))):
         upload(marker)
 
+

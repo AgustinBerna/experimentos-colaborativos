@@ -78,13 +78,14 @@ def main():
     meta = {id_col, time_col, target_col}
     candidates = [c for c in df.columns if c not in meta]
     train_df = df.filter(pl.col(time_col).is_in(train_months))
-    observed_train = train_df.select([
+    selection_df = df.filter(pl.col(time_col).is_in(config["feature_selection_months"]))
+    observed_train = selection_df.select([
         (pl.col(c).is_not_null() & ~pl.col(c).is_nan().fill_null(False))
         .sum().alias(c) for c in candidates
     ]).row(0, named=True)
     drop_features = [c for c in candidates if observed_train[c] == 0]
     exclusions = [{"feature": c, "observed_in_train": 0,
-                   "reason": "100% faltante en meses de entrenamiento"}
+                   "reason": "100% faltante en train original marzo-junio; esquema congelado de Exp2"}
                   for c in drop_features]
     if drop_features:
         df = df.drop(drop_features)
@@ -230,3 +231,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

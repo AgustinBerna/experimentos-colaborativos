@@ -15,7 +15,6 @@ res <- file.path(work, "resultados")
 seed <- read_csv(file.path(res, "metricas_por_semilla_test.csv"), show_col_types = FALSE)
 ens <- read_csv(file.path(res, "resumen_ensamble_test.csv"), show_col_types = FALSE)
 curves <- read_csv(file.path(res, "curvas_ensamble_test.csv"), show_col_types = FALSE)
-valid <- read_csv(file.path(work, "E0", "optimization", "curva_ganancia_valid_e0.csv"), show_col_types = FALSE)
 nan_report <- read_csv(file.path(work, "raw", "reporte_nan_por_mes.csv"), show_col_types = FALSE)
 selected <- jsonlite::fromJSON(file.path(work, "E0", "optimization", "seleccion.json"))
 indicator_plan <- jsonlite::fromJSON(file.path(work, "partition", "indicadores_ausente.json"))
@@ -58,7 +57,7 @@ tabla <- datatable(
                    ganancia_sd, lift_medio, recall_medio, auc_ensamble,
                    ganancia_ensamble, p_holm_auc_vs_E0, p_holm_gain_vs_E0,
                    auc_marca, ganancia_marca),
-  rownames = FALSE, options = list(pageLength = 5, dom = "t", scrollX = TRUE),
+  rownames = FALSE, options = list(pageLength = 7, dom = "t", scrollX = TRUE),
   caption = "Octubre 2019 · 30 semillas · mismo N fijado en agosto"
 ) %>%
   formatRound(columns = c("auc_media", "auc_sd", "ap_media", "auc_ensamble"), digits = 5) %>%
@@ -66,27 +65,6 @@ tabla <- datatable(
                             "p_holm_gain_vs_E0"), digits = 4) %>%
   formatCurrency(columns = c("ganancia_media", "ganancia_sd", "ganancia_ensamble"),
                  currency = "$", digits = 0)
-
-# CSV de agosto conserva TODOS los N; se submuestrea sólo la visualización.
-limit_valid <- min(max(15000L, n_fijo + 500L), max(valid$envios))
-valid_plot <- valid %>% filter(envios <= limit_valid,
-                                envios %% 25L == 0L | envios == n_fijo |
-                                  envios == selected$n_raw_max_valid)
-g_valid <- ggplot(valid_plot, aes(x = envios)) +
-  geom_line(aes(y = ganancia / 1e6, color = "Ganancia acumulada"),
-            linewidth = .6, alpha = .6) +
-  geom_line(aes(y = ganancia_suavizada / 1e6, color = "Meseta suavizada"),
-            linewidth = 1.3) +
-  geom_vline(xintercept = n_fijo, linetype = "dashed", color = "#13834b") +
-  annotate("text", x = n_fijo, y = max(valid_plot$ganancia / 1e6),
-           label = paste("N elegido:", n_fijo), hjust = 0, vjust = -0.6,
-           color = "#13834b", size = 3.5) +
-  scale_color_manual(values = c("Ganancia acumulada" = "#8998ac",
-                                "Meseta suavizada" = "#1768a8"), name = NULL) +
-  labs(title = "E0 · Ganancia en validación (agosto 2019)",
-       subtitle = paste0("N = ", n_fijo, " por máximo de la media móvil ±",
-                         selected$smoothing_radius_n, "; curva hasta ", limit_valid, " envíos"),
-       x = "Cantidad de envíos", y = "Ganancia acumulada (millones de $)") + theme_minimal()
 
 # Octubre se grafica únicamente hasta el N decidido sin ver test.
 curves <- curves %>% filter(envios <= n_fijo) %>% group_by(method) %>%
@@ -139,10 +117,9 @@ dashboard <- tagList(
   tags$head(tags$title("Imputaciones v3 con indicadores · resultados 2019"),
             tags$style(HTML("body{font-family:Arial,sans-serif;margin:24px;background:#f5f7fa;color:#172b4d}.card{background:white;padding:20px;border-radius:10px;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:20px}.grid .card{margin:0}h1,h2{color:#12345c}"))),
   tags$h1("Experimento de imputaciones · v3 con indicadores de ausencia"),
-  tags$p("Train: marzo-junio 2019 · Validación: agosto · Test: octubre · 30 semillas · ",
+  tags$p("Train: marzo-agosto 2019 · Sin nueva validación · Test: octubre · 30 semillas · ",
          nrow(indicator_plan), " indicadores originales"),
-  card("1. Cómo se eligió N en validación", ggplotly(g_valid),
-       tags$p("Optuna ordenó modelos por AUC binaria. Con el mejor E0 se calculó la ganancia para todos los N de agosto y se eligió la meseta suavizada. Octubre no participó.")),
+  card("1. Selección histórica de Exp2", tags$p("Hiperparámetros congelados; 232 árboles y N=4000. Sin nueva optimización ni validación. Los indicadores originales se mantienen.")),
   card("2. Comparación en octubre al N fijo", tabla,
        tags$p("* p<0,05 · ** p<0,01 · *** p<0,001 · ns: no significativo. Wilcoxon pareado por semilla, con ajuste Holm dentro de cada métrica. ↑/↓ indica dirección del promedio frente a E0.")),
   div(class = "grid", card("AUC por semilla", ggplotly(g_box_auc)),
@@ -166,3 +143,4 @@ if (nzchar(Sys.which("zip"))) {
   setwd(previous)
   cat("ZIP descargable:", file.path(res, "dashboard_comparativo_descargar.zip"), "\n")
 }
+

@@ -36,13 +36,14 @@ def identity(config_path: Path, data_path: Path) -> dict:
     return {
         "config_sha256": sha256(config_path),
         "data_sha256": sha256(data_path),
+        "selection_sha256": sha256(ROOT / "seleccion.json"),
         "code_sha256": {str(path.relative_to(ROOT)): sha256(path) for path in sources},
         "python": sys.version.split()[0],
     }
 
 
 def validate_config(config: dict):
-    if config["train_months"] != [201903, 201904, 201905, 201906]:
+    if config["train_months"] != [201903, 201904, 201905, 201906, 201907, 201908]:
         raise ValueError("Meses de entrenamiento fuera del protocolo")
     if (config["valid_month"], config["test_month"]) != (201908, 201910):
         raise ValueError("Validación/test fuera del protocolo")
@@ -187,3 +188,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

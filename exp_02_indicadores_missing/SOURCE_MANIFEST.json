@@ -1,0 +1,74 @@
+{
+  "exp_02_indicadores_missing/01_auditar.py": {
+    "sha": "d826b166f80a22a734095b68d9845ff6fade9317",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/01_auditar.py"
+  },
+  "exp_02_indicadores_missing/02_particionar.py": {
+    "sha": "b4b1e52250782d3044fe21952ca94719e371855e",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/02_particionar.py"
+  },
+  "exp_02_indicadores_missing/03_imputar_baseline.py": {
+    "sha": "b26772996d59d96843169a1d96c51694750b9a4d",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_baseline.py"
+  },
+  "exp_02_indicadores_missing/03_imputar_miceforest.py": {
+    "sha": "f13329dcde128b88b1f5dd3892887d5f44bec92e",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_miceforest.py"
+  },
+  "exp_02_indicadores_missing/03_imputar_multivariada.py": {
+    "sha": "39b54e928ca18ba0276bc57a7c643e3ede6b2c00",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_multivariada.py"
+  },
+  "exp_02_indicadores_missing/03_imputar_temporal.py": {
+    "sha": "cde3e2abfb3f23911ab1ddfd910ca31b572e1660",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_temporal.py"
+  },
+  "exp_02_indicadores_missing/03_imputar_univariada.py": {
+    "sha": "8f47549c415bc153b50785284f993958b98f9e5e",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_univariada.py"
+  },
+  "exp_02_indicadores_missing/04_modelar_evaluar.py": {
+    "sha": "e509aede8aa458a2a8990594301e8eebcbb6ca23",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/04_modelar_evaluar.py"
+  },
+  "exp_02_indicadores_missing/05_estado.py": {
+    "sha": "cc983738fdfd56131c28269bb51e00890657d3f2",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/05_estado.py"
+  },
+  "exp_02_indicadores_missing/README.md": {
+    "sha": "770ff9efb88eac24ed4a36b4a78f9397c37ed121",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/README.md"
+  },
+  "exp_02_indicadores_missing/config.json": {
+    "sha": "41b208140bb37e95dd73e016d55cfae31b8af4e3",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/config.json"
+  },
+  "exp_02_indicadores_missing/dashboard.R": {
+    "sha": "c61c543bf2617af213d9e108ca545ec42f8439b4",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/dashboard.R"
+  },
+  "exp_02_indicadores_missing/install_r_packages.R": {
+    "sha": "162dc008c292d6092bc54de3fbc0131a0e3df833",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/install_r_packages.R"
+  },
+  "exp_02_indicadores_missing/requirements.txt": {
+    "sha": "3475b03fdd856a89dd1453c1ee6150858c8fdcff",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/requirements.txt"
+  },
+  "exp_02_indicadores_missing/run_pipeline.py": {
+    "sha": "59abd05b5a779965b773cdd3c1d993b2bf102e6d",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/run_pipeline.py"
+  },
+  "exp_02_indicadores_missing/seleccion.json": {
+    "sha": "fe077146d89994ead56ff90e31581e4c5b22a577",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/seleccion.json"
+  },
+  "exp_02_indicadores_missing/src/fe_imputacion.py": {
+    "sha": "cb634aacbe730a811b2b5d730e2de8bb3461eae9",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/src/fe_imputacion.py"
+  },
+  "exp_02_indicadores_missing/src/remote.py": {
+    "sha": "7d9642efa75fc89e9c44bb08da0b59dc3c54df57",
+    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/src/remote.py"
+  }
+}

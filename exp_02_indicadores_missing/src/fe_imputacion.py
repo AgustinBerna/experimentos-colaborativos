@@ -47,7 +47,7 @@ def build_lags_deltas_and_save(df_imputed: pl.DataFrame, feature_cols: list[str]
     out_dir = work / method / "prepared"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Separar estrictamente en train (201903-201906), valid (201908) y test (201910)
+    # Separar estrictamente en train (201903-201908), valid (201908) y test (201910)
     for role in ["train", "valid", "test"]:
         sub = df_full.filter(pl.col("partition_role") == role)
         sub_path = out_dir / f"{role}.parquet"
@@ -62,3 +62,4 @@ def build_lags_deltas_and_save(df_imputed: pl.DataFrame, feature_cols: list[str]
         "total_columns": df_full.width
     }, indent=2), encoding="utf-8")
     logging.info("[%s] Checkpoint escrito en %s", method, done_path)
+
