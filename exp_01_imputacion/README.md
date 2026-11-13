@@ -18,7 +18,7 @@ Se compararon siete tratamientos de valores faltantes, manteniendo las mismas pa
 - **E1, E2 y E3:** imputación por media, mediana y moda, respectivamente.
 - **E4:** forward fill causal por cliente, utilizando únicamente observaciones anteriores.
 - **E5:** imputación iterativa mediante BayesianRidge, ajustada sobre una muestra de 60.000 filas, con 10 rondas y 25 variables vecinas.
-- **E06:** imputación mediante miceforest/LightGBM, con 5 rondas, 100 iteraciones por variable y predictive mean matching con 5 donantes.
+- **E6:** imputación mediante miceforest/LightGBM, con 5 rondas, 100 iteraciones por variable y predictive mean matching con 5 donantes.
 
 ### Preparación de variables
 
