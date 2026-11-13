@@ -1,25 +1,20 @@
 # Experimentos colaborativos
 
-Experimentos de imputación de valores faltantes en churn bancario, con código, configuración y resultados de cada corrida.
 
 **[Ver los dashboards en GitHub Pages](https://agustinberna.github.io/experimentos-colaborativos/)**
 
 | Experimento | Descripción | Árboles E0 | N | Resultados |
 |---|---|---:|---:|---|
-| [Exp 1 · Imputación](exp_01_imputacion/) | NaN nativo y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
-| [Exp 2 · Indicadores con lags y deltas](exp_02_indicadores_missing/) | 150 indicadores originales + 300 lags + 300 deltas; optimización propia de E0 | 361 | 4352 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar HTML](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
+| [Exp 1 · Imputación](exp_01_imputacion/) | NaN basal y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
+| [Exp 2 · Indicadores con lags y deltas](exp_02_indicadores_missing/) | Mismo que Exp1 pero agregando  indicadores de missing sus lags y delta lags; optimización propia de E0 | 361 | 4352 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar HTML](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
 
 Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de 2019** y evalúan **octubre de 2019**, con 30 semillas comunes por método.
 
 ## Búsqueda de hiperparámetros
 
-La metodología se conserva: 50 trials de Optuna solo para E0, entrenamiento marzo–junio y selección por AUC en agosto. El ganador E0 elige N por la meseta suavizada de ganancia de agosto; octubre no participa. Cada método hereda hiperparámetros, árboles y N de su E0. Después se realiza el entrenamiento final marzo–agosto con esa selección congelada.
+Metodologia: Busqueda de hiperparametros y número de envios solo con E0: entrenamiento marzo–junio y selección por AUC en agosto. El ganador E0 elige N por la meseta suavizada de ganancia de agosto. Luego cada método usa esos hiperparámetros, árboles y N de su E0. Después se realiza el entrenamiento final marzo–agosto con esa selección congelada. De esta manera lo único que cambian son los métodos de imputación dejando fijo lo demás.
 
-Exp1 reutiliza su selección histórica. El Exp2 actual realiza su **propia optimización** e incorpora lags y deltas mensuales de los indicadores. Esta corrida se llamó Exp3 en GCP y reemplaza aquí al Exp2 anterior. Los archivos originales de identidad y selección conservan ese identificador para trazabilidad.
-
-Los experimentos tienen sus propias selecciones y N: la comparación es descriptiva y no aísla causalmente el efecto de los indicadores. Los p-valores por semilla no representan tests temporales independientes. Los README detallan metodología, ejecución y procedencia.
-
-Cada carpeta incluye resultados CSV, dashboard autocontenido y manifiesto con hashes. En ambas corridas publicadas, el código y la configuración coinciden con las identidades suministradas. No se reentrenó al publicar los resultados.
+Cada carpeta incluye resultados CSV, dashboard autocontenido
 
 ## GitHub Pages
 
