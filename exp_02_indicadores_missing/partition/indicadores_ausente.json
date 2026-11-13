@@ -1,0 +1,752 @@
+[
+  {
+    "feature": "active_quarter",
+    "indicator": "active_quarter__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cliente_vip",
+    "indicator": "cliente_vip__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "internet",
+    "indicator": "internet__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cliente_edad",
+    "indicator": "cliente_edad__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cliente_antiguedad",
+    "indicator": "cliente_antiguedad__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mrentabilidad",
+    "indicator": "mrentabilidad__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "mrentabilidad_annual",
+    "indicator": "mrentabilidad_annual__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "mcomisiones",
+    "indicator": "mcomisiones__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "mactivos_margen",
+    "indicator": "mactivos_margen__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "mpasivos_margen",
+    "indicator": "mpasivos_margen__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "cproductos",
+    "indicator": "cproductos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "tcuentas",
+    "indicator": "tcuentas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccuenta_corriente",
+    "indicator": "ccuenta_corriente__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcuenta_corriente_adicional",
+    "indicator": "mcuenta_corriente_adicional__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcuenta_corriente",
+    "indicator": "mcuenta_corriente__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccaja_ahorro",
+    "indicator": "ccaja_ahorro__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcaja_ahorro",
+    "indicator": "mcaja_ahorro__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcaja_ahorro_adicional",
+    "indicator": "mcaja_ahorro_adicional__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcaja_ahorro_dolares",
+    "indicator": "mcaja_ahorro_dolares__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cdescubierto_preacordado",
+    "indicator": "cdescubierto_preacordado__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcuentas_saldo",
+    "indicator": "mcuentas_saldo__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_debito",
+    "indicator": "ctarjeta_debito__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_debito_transacciones",
+    "indicator": "ctarjeta_debito_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mautoservicio",
+    "indicator": "mautoservicio__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_visa",
+    "indicator": "ctarjeta_visa__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_visa_transacciones",
+    "indicator": "ctarjeta_visa_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtarjeta_visa_consumo",
+    "indicator": "mtarjeta_visa_consumo__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_master",
+    "indicator": "ctarjeta_master__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_master_transacciones",
+    "indicator": "ctarjeta_master_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtarjeta_master_consumo",
+    "indicator": "mtarjeta_master_consumo__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cprestamos_personales",
+    "indicator": "cprestamos_personales__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mprestamos_personales",
+    "indicator": "mprestamos_personales__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cprestamos_prendarios",
+    "indicator": "cprestamos_prendarios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mprestamos_prendarios",
+    "indicator": "mprestamos_prendarios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cprestamos_hipotecarios",
+    "indicator": "cprestamos_hipotecarios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mprestamos_hipotecarios",
+    "indicator": "mprestamos_hipotecarios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cplazo_fijo",
+    "indicator": "cplazo_fijo__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mplazo_fijo_dolares",
+    "indicator": "mplazo_fijo_dolares__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mplazo_fijo_pesos",
+    "indicator": "mplazo_fijo_pesos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cinversion1",
+    "indicator": "cinversion1__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "minversion1_pesos",
+    "indicator": "minversion1_pesos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "minversion1_dolares",
+    "indicator": "minversion1_dolares__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cinversion2",
+    "indicator": "cinversion2__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "minversion2",
+    "indicator": "minversion2__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cseguro_vida",
+    "indicator": "cseguro_vida__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cseguro_auto",
+    "indicator": "cseguro_auto__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cseguro_vivienda",
+    "indicator": "cseguro_vivienda__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cseguro_accidentes_personales",
+    "indicator": "cseguro_accidentes_personales__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccaja_seguridad",
+    "indicator": "ccaja_seguridad__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cpayroll_trx",
+    "indicator": "cpayroll_trx__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mpayroll",
+    "indicator": "mpayroll__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mpayroll2",
+    "indicator": "mpayroll2__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cpayroll2_trx",
+    "indicator": "cpayroll2_trx__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccuenta_debitos_automaticos",
+    "indicator": "ccuenta_debitos_automaticos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcuenta_debitos_automaticos",
+    "indicator": "mcuenta_debitos_automaticos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_visa_debitos_automaticos",
+    "indicator": "ctarjeta_visa_debitos_automaticos__ausente",
+    "missing_in_train": 126116
+  },
+  {
+    "feature": "mttarjeta_visa_debitos_automaticos",
+    "indicator": "mttarjeta_visa_debitos_automaticos__ausente",
+    "missing_in_train": 126116
+  },
+  {
+    "feature": "ctarjeta_master_debitos_automaticos",
+    "indicator": "ctarjeta_master_debitos_automaticos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mttarjeta_master_debitos_automaticos",
+    "indicator": "mttarjeta_master_debitos_automaticos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cpagodeservicios",
+    "indicator": "cpagodeservicios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mpagodeservicios",
+    "indicator": "mpagodeservicios__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cpagomiscuentas",
+    "indicator": "cpagomiscuentas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mpagomiscuentas",
+    "indicator": "mpagomiscuentas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajeros_propios_descuentos",
+    "indicator": "ccajeros_propios_descuentos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcajeros_propios_descuentos",
+    "indicator": "mcajeros_propios_descuentos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctarjeta_visa_descuentos",
+    "indicator": "ctarjeta_visa_descuentos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtarjeta_visa_descuentos",
+    "indicator": "mtarjeta_visa_descuentos__ausente",
+    "missing_in_train": 18380
+  },
+  {
+    "feature": "ctarjeta_master_descuentos",
+    "indicator": "ctarjeta_master_descuentos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtarjeta_master_descuentos",
+    "indicator": "mtarjeta_master_descuentos__ausente",
+    "missing_in_train": 2858
+  },
+  {
+    "feature": "ccomisiones_mantenimiento",
+    "indicator": "ccomisiones_mantenimiento__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcomisiones_mantenimiento",
+    "indicator": "mcomisiones_mantenimiento__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccomisiones_otras",
+    "indicator": "ccomisiones_otras__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "mcomisiones_otras",
+    "indicator": "mcomisiones_otras__ausente",
+    "missing_in_train": 126763
+  },
+  {
+    "feature": "cforex",
+    "indicator": "cforex__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cforex_buy",
+    "indicator": "cforex_buy__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mforex_buy",
+    "indicator": "mforex_buy__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cforex_sell",
+    "indicator": "cforex_sell__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mforex_sell",
+    "indicator": "mforex_sell__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctransferencias_recibidas",
+    "indicator": "ctransferencias_recibidas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtransferencias_recibidas",
+    "indicator": "mtransferencias_recibidas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctransferencias_emitidas",
+    "indicator": "ctransferencias_emitidas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mtransferencias_emitidas",
+    "indicator": "mtransferencias_emitidas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "cextraccion_autoservicio",
+    "indicator": "cextraccion_autoservicio__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mextraccion_autoservicio",
+    "indicator": "mextraccion_autoservicio__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccheques_depositados",
+    "indicator": "ccheques_depositados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcheques_depositados",
+    "indicator": "mcheques_depositados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccheques_emitidos",
+    "indicator": "ccheques_emitidos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcheques_emitidos",
+    "indicator": "mcheques_emitidos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccheques_depositados_rechazados",
+    "indicator": "ccheques_depositados_rechazados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcheques_depositados_rechazados",
+    "indicator": "mcheques_depositados_rechazados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccheques_emitidos_rechazados",
+    "indicator": "ccheques_emitidos_rechazados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "mcheques_emitidos_rechazados",
+    "indicator": "mcheques_emitidos_rechazados__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "tcallcenter",
+    "indicator": "tcallcenter__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccallcenter_transacciones",
+    "indicator": "ccallcenter_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "thomebanking",
+    "indicator": "thomebanking__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "chomebanking_transacciones",
+    "indicator": "chomebanking_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajas_transacciones",
+    "indicator": "ccajas_transacciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajas_consultas",
+    "indicator": "ccajas_consultas__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajas_depositos",
+    "indicator": "ccajas_depositos__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajas_extracciones",
+    "indicator": "ccajas_extracciones__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ccajas_otras",
+    "indicator": "ccajas_otras__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "catm_trx",
+    "indicator": "catm_trx__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "matm",
+    "indicator": "matm__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "catm_trx_other",
+    "indicator": "catm_trx_other__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "matm_other",
+    "indicator": "matm_other__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "ctrx_quarter",
+    "indicator": "ctrx_quarter__ausente",
+    "missing_in_train": 0
+  },
+  {
+    "feature": "Master_delinquency",
+    "indicator": "Master_delinquency__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_status",
+    "indicator": "Master_status__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_mfinanciacion_limite",
+    "indicator": "Master_mfinanciacion_limite__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_Fvencimiento",
+    "indicator": "Master_Fvencimiento__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_Finiciomora",
+    "indicator": "Master_Finiciomora__ausente",
+    "missing_in_train": 764824
+  },
+  {
+    "feature": "Master_msaldototal",
+    "indicator": "Master_msaldototal__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_msaldopesos",
+    "indicator": "Master_msaldopesos__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_msaldodolares",
+    "indicator": "Master_msaldodolares__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_mconsumospesos",
+    "indicator": "Master_mconsumospesos__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_mconsumosdolares",
+    "indicator": "Master_mconsumosdolares__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_mlimitecompra",
+    "indicator": "Master_mlimitecompra__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_madelantopesos",
+    "indicator": "Master_madelantopesos__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_madelantodolares",
+    "indicator": "Master_madelantodolares__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_fultimo_cierre",
+    "indicator": "Master_fultimo_cierre__ausente",
+    "missing_in_train": 100246
+  },
+  {
+    "feature": "Master_mpagado",
+    "indicator": "Master_mpagado__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_mpagospesos",
+    "indicator": "Master_mpagospesos__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_mpagosdolares",
+    "indicator": "Master_mpagosdolares__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_fechaalta",
+    "indicator": "Master_fechaalta__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Master_mconsumototal",
+    "indicator": "Master_mconsumototal__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_cconsumos",
+    "indicator": "Master_cconsumos__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_cadelantosefectivo",
+    "indicator": "Master_cadelantosefectivo__ausente",
+    "missing_in_train": 447048
+  },
+  {
+    "feature": "Master_mpagominimo",
+    "indicator": "Master_mpagominimo__ausente",
+    "missing_in_train": 99846
+  },
+  {
+    "feature": "Visa_delinquency",
+    "indicator": "Visa_delinquency__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_status",
+    "indicator": "Visa_status__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_mfinanciacion_limite",
+    "indicator": "Visa_mfinanciacion_limite__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_Fvencimiento",
+    "indicator": "Visa_Fvencimiento__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_Finiciomora",
+    "indicator": "Visa_Finiciomora__ausente",
+    "missing_in_train": 753106
+  },
+  {
+    "feature": "Visa_msaldototal",
+    "indicator": "Visa_msaldototal__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_msaldopesos",
+    "indicator": "Visa_msaldopesos__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_msaldodolares",
+    "indicator": "Visa_msaldodolares__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_mconsumospesos",
+    "indicator": "Visa_mconsumospesos__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_mconsumosdolares",
+    "indicator": "Visa_mconsumosdolares__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_mlimitecompra",
+    "indicator": "Visa_mlimitecompra__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_madelantopesos",
+    "indicator": "Visa_madelantopesos__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_madelantodolares",
+    "indicator": "Visa_madelantodolares__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_fultimo_cierre",
+    "indicator": "Visa_fultimo_cierre__ausente",
+    "missing_in_train": 29407
+  },
+  {
+    "feature": "Visa_mpagado",
+    "indicator": "Visa_mpagado__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_mpagospesos",
+    "indicator": "Visa_mpagospesos__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_mpagosdolares",
+    "indicator": "Visa_mpagosdolares__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_fechaalta",
+    "indicator": "Visa_fechaalta__ausente",
+    "missing_in_train": 29194
+  },
+  {
+    "feature": "Visa_mconsumototal",
+    "indicator": "Visa_mconsumototal__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_cconsumos",
+    "indicator": "Visa_cconsumos__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_cadelantosefectivo",
+    "indicator": "Visa_cadelantosefectivo__ausente",
+    "missing_in_train": 100102
+  },
+  {
+    "feature": "Visa_mpagominimo",
+    "indicator": "Visa_mpagominimo__ausente",
+    "missing_in_train": 29194
+  }
+]

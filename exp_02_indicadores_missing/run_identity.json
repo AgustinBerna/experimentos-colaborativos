@@ -1,7 +1,7 @@
 {
-  "config_sha256": "c82a914b63f8a35475b2131e99a8a37a24d65896c77f49e2f4c1bde42c66a200",
+  "config_sha256": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
   "data_sha256": "6c3ec2fb4d94521c0c3cc72988c4019c8b65a157d81e0f3b6d7e1b87e0c306f4",
-  "selection_sha256": "0906121cbe47ecd3b8f7eb039e541d571f5f025ea0c5b5fe4db59373e84fdf49",
+  "selection_policy": "own_Exp3_E0_then_freeze_before_test",
   "code_sha256": {
     "01_auditar.py": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
     "02_particionar.py": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
@@ -10,13 +10,13 @@
     "03_imputar_multivariada.py": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
     "03_imputar_temporal.py": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
     "03_imputar_univariada.py": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
-    "04_modelar_evaluar.py": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
+    "04_modelar_evaluar.py": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
     "05_estado.py": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
-    "dashboard.R": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
+    "dashboard.R": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
     "install_r_packages.R": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
     "requirements.txt": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
-    "run_pipeline.py": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
-    "src/fe_imputacion.py": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
+    "run_pipeline.py": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+    "src/fe_imputacion.py": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
     "src/remote.py": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d"
   },
   "python": "3.14.4"

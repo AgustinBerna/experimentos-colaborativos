@@ -57,7 +57,7 @@ tabla <- datatable(
                    ganancia_sd, lift_medio, recall_medio, auc_ensamble,
                    ganancia_ensamble, p_holm_auc_vs_E0, p_holm_gain_vs_E0,
                    auc_marca, ganancia_marca),
-  rownames = FALSE, options = list(pageLength = 7, dom = "t", scrollX = TRUE),
+  rownames = FALSE, options = list(paging = FALSE, dom = "t", scrollX = TRUE),
   caption = "Octubre 2019 · 30 semillas · mismo N fijado en agosto"
 ) %>%
   formatRound(columns = c("auc_media", "auc_sd", "ap_media", "auc_ensamble"), digits = 5) %>%
@@ -114,12 +114,14 @@ g_nan <- ggplot(nan_summary, aes(factor(foto_mes), variables_100pct_cero,
 
 card <- function(title, ...) div(class = "card", tags$h2(title), ...)
 dashboard <- tagList(
-  tags$head(tags$title("Imputaciones v3 con indicadores · resultados 2019"),
+  tags$head(tags$title("Exp3 · lags, deltas y optimización propia · resultados 2019"),
             tags$style(HTML("body{font-family:Arial,sans-serif;margin:24px;background:#f5f7fa;color:#172b4d}.card{background:white;padding:20px;border-radius:10px;margin:20px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:20px}.grid .card{margin:0}h1,h2{color:#12345c}"))),
-  tags$h1("Experimento de imputaciones · v3 con indicadores de ausencia"),
-  tags$p("Train: marzo-agosto 2019 · Sin nueva validación · Test: octubre · 30 semillas · ",
-         nrow(indicator_plan), " indicadores originales"),
-  card("1. Selección histórica de Exp2", tags$p("Hiperparámetros congelados; 232 árboles y N=4000. Sin nueva optimización ni validación. Los indicadores originales se mantienen.")),
+  tags$h1("Exp3 · indicadores de ausencia con lags y deltas de 1 y 2 meses"),
+  tags$p("Train: marzo-agosto 2019 · Optuna E0: marzo-junio / validación agosto · Test: octubre · 30 semillas · ",
+         nrow(indicator_plan), " indicadores originales + ", 2L * nrow(indicator_plan), " lags + ", 2L * nrow(indicator_plan), " deltas mensuales"),
+  card("Lags y deltas de los indicadores", tags$p("Indicadores del faltante original, antes de imputar. Se agregan sus valores de t-1 y t-2 por cliente y mes calendario exacto. Historia inexistente queda null. Deltas = indicador actual menos el de t-1 o t-2; null si falta historia. Mismas variables base y lags/deltas que Exp2.")),
+  card("Optimización propia del baseline E0", tags$p("50 trials de Optuna sobre E0 de Exp3 con indicadores, lags y deltas. Entrenamiento de la búsqueda: marzo-junio de 2019; validación por AUC: agosto. Con el ganador se elige N por la meseta de ganancia de agosto. Octubre no participa. Luego todos los métodos se reajustan con marzo-agosto y la selección de E0 de Exp3 congelada.")),
+  card("1. Selección de E0 de Exp3", tags$p(paste0("AUC de agosto: ", signif(selected$best_auc_valid, 7), "; árboles: ", selected$best_iteration, "; N: ", selected$n_selected_valid, ". Todos los métodos heredan esta selección antes de evaluar octubre."))),
   card("2. Comparación en octubre al N fijo", tabla,
        tags$p("* p<0,05 · ** p<0,01 · *** p<0,001 · ns: no significativo. Wilcoxon pareado por semilla, con ajuste Holm dentro de cada métrica. ↑/↓ indica dirección del promedio frente a E0.")),
   div(class = "grid", card("AUC por semilla", ggplotly(g_box_auc)),

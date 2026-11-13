@@ -54,8 +54,8 @@
     "mean_match_candidates": 5
   },
   "gain": {
-    "tp_value": 1072500.0,
-    "fp_value": -27500.0,
+    "tp_value": 1072500,
+    "fp_value": -27500,
     "smoothing_radius_n": 500
   },
   "optimization": {
@@ -82,7 +82,7 @@
       ],
       "bagging_fraction": [
         0.5,
-        1.0
+        1
       ]
     }
   },
@@ -123,5 +123,18 @@
     201904,
     201905,
     201906
-  ]
+  ],
+  "missing_indicator_lags": [
+    1,
+    2
+  ],
+  "missing_indicator_deltas": true,
+  "optimization_train_months": [
+    201903,
+    201904,
+    201905,
+    201906
+  ],
+  "optimization_valid_month": 201908,
+  "optimization_mode": "own_E0"
 }

@@ -1,0 +1,45 @@
+{
+  "python": "3.13.9",
+  "polars": "2.0.0",
+  "lightgbm": "4.5.0",
+  "optuna": "4.6.0",
+  "numpy": "2.5.4",
+  "scikit_learn": "1.9.1",
+  "scipy": "1.18.1",
+  "unit_tests": {
+    "passed": 12,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "synthetic_hpo": {
+    "trials": 2,
+    "fit_months": [
+      201903,
+      201904,
+      201905,
+      201906
+    ],
+    "valid_month": 201908,
+    "completed_without_test_file": true,
+    "final_fit_all_six_months_verified": true,
+    "methods": 2,
+    "seeds_per_method": 30,
+    "shared_selection_verified": true,
+    "resume_no_extra_trials_or_repeated_fits": true
+  },
+  "production_hpo": {
+    "trials": 50,
+    "executed": false
+  },
+  "python_syntax": "compilación de todos los archivos correcta",
+  "r_syntax": "dashboard.R parseado con R 4.4.1",
+  "full_training_on_real_dataset_executed": false,
+  "real_dataset_available": false,
+  "additional_features_per_indicator": 4,
+  "calendar_month_lags": [
+    1,
+    2
+  ],
+  "indicator_deltas": true,
+  "selection_inherited_from_exp2": false
+}

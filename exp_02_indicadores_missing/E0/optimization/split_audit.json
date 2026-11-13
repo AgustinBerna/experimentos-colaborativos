@@ -1,0 +1,23 @@
+{
+  "experiment": "Exp3",
+  "baseline": "E0",
+  "train_months": [
+    201903,
+    201904,
+    201905,
+    201906
+  ],
+  "valid_month": 201908,
+  "train_rows": 506871,
+  "valid_rows": 131775,
+  "feature_count": 1500,
+  "test_read_during_optimization": false,
+  "final_train_months": [
+    201903,
+    201904,
+    201905,
+    201906,
+    201907,
+    201908
+  ]
+}

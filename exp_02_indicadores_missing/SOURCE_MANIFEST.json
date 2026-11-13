@@ -1,74 +1,159 @@
 {
-  "exp_02_indicadores_missing/01_auditar.py": {
-    "sha": "d826b166f80a22a734095b68d9845ff6fade9317",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/01_auditar.py"
-  },
-  "exp_02_indicadores_missing/02_particionar.py": {
-    "sha": "b4b1e52250782d3044fe21952ca94719e371855e",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/02_particionar.py"
-  },
-  "exp_02_indicadores_missing/03_imputar_baseline.py": {
-    "sha": "b26772996d59d96843169a1d96c51694750b9a4d",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_baseline.py"
-  },
-  "exp_02_indicadores_missing/03_imputar_miceforest.py": {
-    "sha": "f13329dcde128b88b1f5dd3892887d5f44bec92e",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_miceforest.py"
-  },
-  "exp_02_indicadores_missing/03_imputar_multivariada.py": {
-    "sha": "39b54e928ca18ba0276bc57a7c643e3ede6b2c00",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_multivariada.py"
-  },
-  "exp_02_indicadores_missing/03_imputar_temporal.py": {
-    "sha": "cde3e2abfb3f23911ab1ddfd910ca31b572e1660",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_temporal.py"
-  },
-  "exp_02_indicadores_missing/03_imputar_univariada.py": {
-    "sha": "8f47549c415bc153b50785284f993958b98f9e5e",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/03_imputar_univariada.py"
-  },
-  "exp_02_indicadores_missing/04_modelar_evaluar.py": {
-    "sha": "e509aede8aa458a2a8990594301e8eebcbb6ca23",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/04_modelar_evaluar.py"
-  },
-  "exp_02_indicadores_missing/05_estado.py": {
-    "sha": "cc983738fdfd56131c28269bb51e00890657d3f2",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/05_estado.py"
-  },
-  "exp_02_indicadores_missing/README.md": {
-    "sha": "770ff9efb88eac24ed4a36b4a78f9397c37ed121",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/README.md"
-  },
-  "exp_02_indicadores_missing/config.json": {
-    "sha": "41b208140bb37e95dd73e016d55cfae31b8af4e3",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/config.json"
-  },
-  "exp_02_indicadores_missing/dashboard.R": {
-    "sha": "c61c543bf2617af213d9e108ca545ec42f8439b4",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/dashboard.R"
-  },
-  "exp_02_indicadores_missing/install_r_packages.R": {
-    "sha": "162dc008c292d6092bc54de3fbc0131a0e3df833",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/install_r_packages.R"
-  },
-  "exp_02_indicadores_missing/requirements.txt": {
-    "sha": "3475b03fdd856a89dd1453c1ee6150858c8fdcff",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/requirements.txt"
-  },
-  "exp_02_indicadores_missing/run_pipeline.py": {
-    "sha": "59abd05b5a779965b773cdd3c1d993b2bf102e6d",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/run_pipeline.py"
-  },
-  "exp_02_indicadores_missing/seleccion.json": {
-    "sha": "fe077146d89994ead56ff90e31581e4c5b22a577",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/seleccion.json"
-  },
-  "exp_02_indicadores_missing/src/fe_imputacion.py": {
-    "sha": "cb634aacbe730a811b2b5d730e2de8bb3461eae9",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/src/fe_imputacion.py"
-  },
-  "exp_02_indicadores_missing/src/remote.py": {
-    "sha": "7d9642efa75fc89e9c44bb08da0b59dc3c54df57",
-    "url": "https://github.com/AgustinBerna/experimentos-colaborativos/blob/main/exp_02_indicadores_missing/src/remote.py"
+  "experiment": "exp_03_indicadores_lags_deltas_optuna",
+  "parent_experiment": "exp_02_indicadores_missing",
+  "parent_package": "Exp2_indicadores_marzo_agosto_GCP.zip",
+  "parent_package_sha256": "f99e2b4db059978ed6b0d562ea0a0f5e604dd730cabe0e47d4855de2dac18687",
+  "optimization_implementation_source": "Optimizador original de E0 del repositorio, con búsqueda marzo-junio y validación agosto; adaptado para el reajuste final marzo-agosto de Exp3 y cierre explícito del almacenamiento SQLite.",
+  "selection_inherited": false,
+  "selection_policy": "E0 de Exp3 optimiza sus propios hiperparámetros, árboles y N; los comparte con todos los métodos antes del test.",
+  "historical_selection_reference_only": "seleccion_exp2_referencia.json",
+  "changes": [
+    "Lags y deltas mensuales 1 y 2 de los indicadores originales; null si no existe el mes histórico",
+    "50 trials propios sobre E0 con marzo-junio; AUC y N elegidos en agosto",
+    "Reajuste final marzo-agosto sin early stopping; selección de Exp3 congelada antes de abrir octubre",
+    "Rutas GCP exclusivas; checkpoints y auditorías de búsqueda y reajuste",
+    "Pruebas sintéticas de optimización, herencia, separación temporal y reanudación"
+  ],
+  "files": [
+    {
+      "parent_file": "01_auditar.py",
+      "file": "01_auditar.py",
+      "parent_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "exp3_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "unchanged": true
+    },
+    {
+      "parent_file": "02_particionar.py",
+      "file": "02_particionar.py",
+      "parent_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "exp3_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "unchanged": true
+    },
+    {
+      "parent_file": "03_imputar_baseline.py",
+      "file": "03_imputar_baseline.py",
+      "parent_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "exp3_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "unchanged": true
+    },
+    {
+      "parent_file": "03_imputar_miceforest.py",
+      "file": "03_imputar_miceforest.py",
+      "parent_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "exp3_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "unchanged": true
+    },
+    {
+      "parent_file": "03_imputar_multivariada.py",
+      "file": "03_imputar_multivariada.py",
+      "parent_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "exp3_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "unchanged": true
+    },
+    {
+      "parent_file": "03_imputar_temporal.py",
+      "file": "03_imputar_temporal.py",
+      "parent_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "exp3_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "unchanged": true
+    },
+    {
+      "parent_file": "03_imputar_univariada.py",
+      "file": "03_imputar_univariada.py",
+      "parent_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "exp3_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "unchanged": true
+    },
+    {
+      "parent_file": "04_modelar_evaluar.py",
+      "file": "04_modelar_evaluar.py",
+      "parent_sha256": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
+      "exp3_sha256": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+      "unchanged": false
+    },
+    {
+      "parent_file": "05_estado.py",
+      "file": "05_estado.py",
+      "parent_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "exp3_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "unchanged": true
+    },
+    {
+      "parent_file": "README.md",
+      "file": "README.md",
+      "parent_sha256": "8f7ac6e0d71d7a83005932d6facd89bdfbbba5b6586f46dd2997dfc00646f960",
+      "exp3_sha256": "a1fa8233c00f49eda7404dacb44fa38cfc0a89c5ca6dfe6dc734a62ef7bd5e57",
+      "unchanged": false
+    },
+    {
+      "parent_file": "config.json",
+      "file": "config.json",
+      "parent_sha256": "c82a914b63f8a35475b2131e99a8a37a24d65896c77f49e2f4c1bde42c66a200",
+      "exp3_sha256": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
+      "unchanged": false
+    },
+    {
+      "parent_file": "dashboard.R",
+      "file": "dashboard.R",
+      "parent_sha256": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
+      "exp3_sha256": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
+      "unchanged": false
+    },
+    {
+      "parent_file": "ejecutar_gcp.sh",
+      "file": "ejecutar_gcp.sh",
+      "parent_sha256": "43ce8bccb87d56cfef127294828eccdb1486bdf7de2198b8c11fd114a1955861",
+      "exp3_sha256": "862efacf7e12bb0b41fd7ff3ce641b877e7036fb82f47fff25897087d5c229f8",
+      "unchanged": false
+    },
+    {
+      "parent_file": "install_r_packages.R",
+      "file": "install_r_packages.R",
+      "parent_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "exp3_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "unchanged": true
+    },
+    {
+      "parent_file": "requirements.txt",
+      "file": "requirements.txt",
+      "parent_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "exp3_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "unchanged": true
+    },
+    {
+      "parent_file": "run_pipeline.py",
+      "file": "run_pipeline.py",
+      "parent_sha256": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
+      "exp3_sha256": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+      "unchanged": false
+    },
+    {
+      "parent_file": "seleccion.json",
+      "file": "seleccion_exp2_referencia.json",
+      "parent_sha256": "0906121cbe47ecd3b8f7eb039e541d571f5f025ea0c5b5fe4db59373e84fdf49",
+      "exp3_sha256": "0906121cbe47ecd3b8f7eb039e541d571f5f025ea0c5b5fe4db59373e84fdf49",
+      "unchanged": true
+    },
+    {
+      "parent_file": "src/fe_imputacion.py",
+      "file": "src/fe_imputacion.py",
+      "parent_sha256": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
+      "exp3_sha256": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+      "unchanged": false
+    },
+    {
+      "parent_file": "src/remote.py",
+      "file": "src/remote.py",
+      "parent_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "exp3_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "unchanged": true
+    }
+  ],
+  "publication": {
+    "name": "Exp2",
+    "original_run": "Exp3",
+    "code_preserved": true,
+    "display_html_renamed": true,
+    "launcher_routes_renamed_to_Exp2": true
   }
 }

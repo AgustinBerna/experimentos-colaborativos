@@ -36,7 +36,7 @@ def identity(config_path: Path, data_path: Path) -> dict:
     return {
         "config_sha256": sha256(config_path),
         "data_sha256": sha256(data_path),
-        "selection_sha256": sha256(ROOT / "seleccion.json"),
+        "selection_policy": "own_Exp3_E0_then_freeze_before_test",
         "code_sha256": {str(path.relative_to(ROOT)): sha256(path) for path in sources},
         "python": sys.version.split()[0],
     }
@@ -58,6 +58,16 @@ def validate_config(config: dict):
         raise ValueError("Las variables 100% vacías en train deben excluirse")
     if config.get("missing_indicator_suffix") != "__ausente":
         raise ValueError("El sufijo de indicadores debe estar fijado en config.json")
+    if config.get("missing_indicator_lags") != [1, 2]:
+        raise ValueError("Exp3 requiere lags de indicadores de 1 y 2 meses")
+    if config.get("missing_indicator_deltas") is not True:
+        raise ValueError("Exp3 requiere deltas de los indicadores")
+    if config.get("optimization_mode") != "own_E0":
+        raise ValueError("Exp3 debe optimizar su propio E0")
+    if config.get("optimization_train_months") != [201903, 201904, 201905, 201906]:
+        raise ValueError("Optuna debe entrenar con marzo-junio")
+    if config.get("optimization_valid_month") != 201908:
+        raise ValueError("Optuna debe validar en agosto")
     if config["miceforest"]["data_subset"] != 0:
         raise ValueError("E06 debe usar todos los donantes observados (data_subset=0)")
     if len(config["seeds"]) != 30 or len(set(config["seeds"])) != 30:

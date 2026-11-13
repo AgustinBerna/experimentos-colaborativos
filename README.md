@@ -1,28 +1,26 @@
 # Experimentos colaborativos
 
-Dos experimentos de imputación de valores faltantes en churn bancario, con código y resultados de las nuevas corridas.
+Experimentos de imputación de valores faltantes en churn bancario, con código, configuración y resultados de cada corrida.
 
-**[Ver los dos dashboards en GitHub Pages](https://agustinberna.github.io/experimentos-colaborativos/)**
+**[Ver los dashboards en GitHub Pages](https://agustinberna.github.io/experimentos-colaborativos/)**
 
-| Experimento | Descripción | Árboles E0 | N congelado | Dashboard |
+| Experimento | Descripción | Árboles E0 | N | Resultados |
 |---|---|---:|---:|---|
-| [Exp 1 · Imputación](exp_01_imputacion/) | NaN nativo y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar](exp_01_imputacion/resultados/dashboard_comparativo.html) |
-| [Exp 2 · Indicadores de ausencia](exp_02_indicadores_missing/) | Los mismos métodos con 150 indicadores originales | 232 | 4000 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
+| [Exp 1 · Imputación](exp_01_imputacion/) | NaN nativo y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
+| [Exp 2 · Indicadores con lags y deltas](exp_02_indicadores_missing/) | 150 indicadores originales + 300 lags + 300 deltas; optimización propia de E0 | 361 | 4352 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar HTML](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
 
-Ambas corridas entrenan y ajustan los imputadores con **marzo–agosto de 2019**, inclusive, y evalúan **octubre de 2019**, con 30 semillas comunes por método. Conservan sus respectivas selecciones históricas; en el entrenamiento final no se repiten la optimización, el early stopping ni la validación original de agosto. En Exp2, las exclusiones se determinan con marzo–junio para conservar el esquema de variables original, aunque el entrenamiento y el ajuste de imputadores llegan a agosto.
+Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de 2019** y evalúan **octubre de 2019**, con 30 semillas comunes por método.
 
-Los nuevos paquetes de código reemplazan al pipeline histórico. En ambos experimentos, los 15 archivos de código, la configuración y la selección coinciden byte a byte con sus run_identity.json. Cada carpeta incluye los cuatro CSV de resultados, el dashboard autocontenido y un manifiesto de publicación con hashes. No se reentrenó durante esta actualización ni se verificó independientemente el hash del dataset.
+## Búsqueda de hiperparámetros
 
-Cada experimento tiene sus propios hiperparámetros, cantidad de árboles y N. La comparación entre Exp1 y Exp2 es descriptiva y no aísla causalmente el efecto de los indicadores. Los p-valores por semilla no representan tests temporales independientes. Ver metodología y ejecución en los README de cada carpeta.
+La metodología se conserva: 50 trials de Optuna solo para E0, entrenamiento marzo–junio y selección por AUC en agosto. El ganador E0 elige N por la meseta suavizada de ganancia de agosto; octubre no participa. Cada método hereda hiperparámetros, árboles y N de su E0. Después se realiza el entrenamiento final marzo–agosto con esa selección congelada.
 
-## Búsqueda original de hiperparámetros
+Exp1 reutiliza su selección histórica. El Exp2 actual realiza su **propia optimización** e incorpora lags y deltas mensuales de los indicadores. Esta corrida se llamó Exp3 en GCP y reemplaza aquí al Exp2 anterior. Los archivos originales de identidad y selección conservan ese identificador para trazabilidad.
 
-La búsqueda original de hiperparámetros se realizó con 50 trials de Optuna solo para E0, entrenando con marzo–junio de 2019 y eligiendo por AUC en la validación de agosto. Con el mejor E0 se calculó la ganancia para todos los N de agosto y se eligió la meseta suavizada. Octubre no participó. Cada método hereda los parámetros, la iteración y N de su E0.
+Los experimentos tienen sus propias selecciones y N: la comparación es descriptiva y no aísla causalmente el efecto de los indicadores. Los p-valores por semilla no representan tests temporales independientes. Los README detallan metodología, ejecución y procedencia.
 
-Esta metodología se mantiene. Después de esa selección, el entrenamiento final y el ajuste de imputadores se amplían a marzo–agosto, reutilizando los hiperparámetros, árboles y N elegidos.
+Cada carpeta incluye resultados CSV, dashboard autocontenido y manifiesto con hashes. En ambas corridas publicadas, el código y la configuración coinciden con las identidades suministradas. No se reentrenó al publicar los resultados.
 
 ## GitHub Pages
 
-La carpeta docs contiene la portada index.html y los dashboards exp1.html y exp2-marzo-agosto.html, todos sin dependencias externas. Los enlaces anteriores dashboard_comparativo.html y dashboard_imputacion_v3.html siguen abriendo Exp1; dashboard_indicadores_v3.html abre Exp2.
-
-El workflow de Pages publica docs al actualizar main. Si Pages no está habilitado, seleccionar **Settings → Pages → Source → GitHub Actions** una vez y ejecutar el workflow **Publicar dashboard en GitHub Pages**.
+La portada está en docs/index.html. Exp1 se mantiene en exp1.html; Exp2 en exp2-marzo-agosto.html, con los alias exp2.html y dashboard_indicadores_v3.html. El workflow de Pages publica docs al actualizar main.

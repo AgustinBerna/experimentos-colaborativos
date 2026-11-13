@@ -1,6 +1,9 @@
 {
-  "original_html_sha256": "00c6c6733f097af905fc551f3ac6adc80ded4f3ebfea11a94d297c1286068730",
-  "published_html_sha256": "d307d50ace306f9684681a3451317e79d8a7de99a85c2ecf345578d16a67f181",
+  "experiment": "exp_02_indicadores_missing",
+  "published_name": "Exp2: indicadores de ausencia con lags y deltas; optimización propia de E0",
+  "original_run_experiment": "Exp3",
+  "original_html_sha256": "8e3e6397e286d41403f55292c113b4f600f6bf8e00a64efb98e1e7522fa8a00a",
+  "published_html_sha256": "3305b3f76e29127b5b64ee2fc87907c9f69b559ba250429358d120c41f8dba04",
   "dependencies_sha256": {
     "lib/htmlwidgets-1.6.4/htmlwidgets.js": "4578d2a0732228ac3381eb2b3dfd81d30dc1d8000beb96a1b20e4f2088b2b9a4",
     "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
@@ -18,15 +21,6 @@
     "lib/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css": "44356da5c42f304af74d60ee75225f216d5241f353f07fdef30c99536e103d9b"
   },
   "widgets": 7,
-  "all_widget_data_preserved": true,
-  "unresolved_dependencies": [],
-  "transformations": [
-    "Dependencias locales embebidas",
-    "Tabla sin paginación",
-    "Métodos y meses explicitados; idioma español y viewport adaptable",
-    "Se conserva la metodología original de búsqueda: Optuna E0, train marzo-junio, validación agosto y N elegido en agosto; diferenciada del entrenamiento final marzo-agosto"
-  ],
-  "experiment": "exp_02_indicadores_missing",
   "methods": [
     "E0 · NaN nativo",
     "E06 · miceforest",
@@ -36,6 +30,20 @@
     "E4 · Forward fill",
     "E5 · Ridge 60k/10/25"
   ],
+  "all_widget_data_preserved": true,
+  "unresolved_dependencies": [],
+  "transformations": [
+    "Dependencias locales JavaScript/CSS embebidas",
+    "Tabla sin paginación",
+    "Nombre visible Exp3 cambiado a Exp2 para publicación; archivos originales de identidad y selección conservados",
+    "Idioma español y adaptación a pantalla móvil"
+  ],
+  "results_sha256": {
+    "curvas_por_semilla_test.csv": "6c666857598c0999ebcd6f48413c3885689f344398c25c1729575c92cb14ce1e",
+    "metricas_por_semilla_test.csv": "4e5156f9918a348432c663e048a87dd18e6fd88aea0f544e3d9df1377dc42d9c",
+    "resumen_ensamble_test.csv": "761f143eea7a46b1629c3f6f3675b5bb6f2b3fa7f51ff7ef35b659af605a48ee",
+    "curvas_ensamble_test.csv": "a357d12be76e30aa4d96fbf7bedd0f1b65c542e8d04befd398821794fc961c7c"
+  },
   "code_files": [
     {
       "file": "01_auditar.py",
@@ -81,8 +89,8 @@
     },
     {
       "file": "04_modelar_evaluar.py",
-      "run_sha256": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
-      "published_sha256": "36368d1e648929cd63e3fbd2b546e2438c38c32fa77255b6c4b294f33bd6d06c",
+      "run_sha256": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+      "published_sha256": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
       "matches": true
     },
     {
@@ -93,8 +101,8 @@
     },
     {
       "file": "dashboard.R",
-      "run_sha256": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
-      "published_sha256": "d5a64453c49e5f752569860d0d8ac227603e7edc06167d7379bdd69730238a15",
+      "run_sha256": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
+      "published_sha256": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
       "matches": true
     },
     {
@@ -111,14 +119,14 @@
     },
     {
       "file": "run_pipeline.py",
-      "run_sha256": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
-      "published_sha256": "77703a2ecd012d898efd258f8957218c08272cf21cb808f93df63f4d8b365e49",
+      "run_sha256": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+      "published_sha256": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
       "matches": true
     },
     {
       "file": "src/fe_imputacion.py",
-      "run_sha256": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
-      "published_sha256": "de941ddd8fa9de73b9da25ab013223c7f1f802b47b58eaefe34dbcc415c8372a",
+      "run_sha256": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+      "published_sha256": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
       "matches": true
     },
     {
@@ -128,21 +136,26 @@
       "matches": true
     }
   ],
-  "run_identity_provided": true,
+  "config_sha256": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
+  "selection_sha256": "8950c2cd6806bf2becfe46ea5908ebbfc7ddb6967cd228c7a9fd15756325bf01",
+  "run_identity_sha256": "e330b5eca62d64cfb2d7ca1e49fb6206e5bc88bab3c7ee34cf90936e947b1724",
   "run_identity_verified": true,
-  "run_identity_verification_scope": "Coincidencia byte a byte de los 15 archivos de código, config.json y seleccion.json con los hashes declarados. Dataset no disponible para verificación independiente.",
-  "config_sha256": "c82a914b63f8a35475b2131e99a8a37a24d65896c77f49e2f4c1bde42c66a200",
-  "selection_sha256": "0906121cbe47ecd3b8f7eb039e541d571f5f025ea0c5b5fe4db59373e84fdf49",
-  "selection_matches_run_identity": true,
-  "run_identity_sha256": "a48b0104f41b19c1b5842288eaeb3ae71bb7e3333af4643cf494fb6cca1a02ed",
-  "data_sha256_declared": "6c3ec2fb4d94521c0c3cc72988c4019c8b65a157d81e0f3b6d7e1b87e0c306f4",
+  "run_identity_verification_scope": "Los 15 archivos de código y config.json coinciden con los hashes de la corrida suministrada.",
   "dataset_hash_independently_verified": false,
-  "provenance_limit": "La identidad suministrada coincide con el código, configuración y selección publicados. No se reentrenó ni se verificó independientemente el hash del dataset.",
+  "installed_dependency_versions_independently_verified": false,
   "new_training_executed": false,
-  "results_sha256": {
-    "curvas_por_semilla_test.csv": "b09e2ff7b95ee38a0aef94cf167338322885135cad02f01398704efa3dadefa6",
-    "metricas_por_semilla_test.csv": "861152c922367551ee0cf87416b6fe2b31b74a0b52f7271b13c72c4c47e51311",
-    "resumen_ensamble_test.csv": "4d73c1f06309fd8d36780a5f3f08c7f875d7f0e4306847cea0eb7c4b6d91a0d9",
-    "curvas_ensamble_test.csv": "18396a188dc2a09a3153e84775bd9318e6be207e61ffe3b9d5e1f8ee59343971"
-  }
+  "validation": {
+    "seed_rows": 210,
+    "methods": 7,
+    "seeds_per_method": 30,
+    "ensemble_rows": 7,
+    "n": 4352,
+    "best_iteration": 361,
+    "validation_curve_rows": 131776,
+    "original_indicators": 150,
+    "indicator_lags": 300,
+    "indicator_deltas": 300,
+    "features_E0": 1500
+  },
+  "provenance_limit": "Corrida denominada Exp3 en GCP, publicada como Exp2. Se conservaron los metadatos originales; dataset y entorno instalado no disponibles para verificación independiente."
 }

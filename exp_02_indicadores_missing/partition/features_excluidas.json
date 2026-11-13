@@ -1,0 +1,12 @@
+[
+  {
+    "feature": "tmobile_app",
+    "observed_in_train": 0,
+    "reason": "100% faltante en train original marzo-junio; esquema congelado de Exp2"
+  },
+  {
+    "feature": "cmobile_app_trx",
+    "observed_in_train": 0,
+    "reason": "100% faltante en train original marzo-junio; esquema congelado de Exp2"
+  }
+]
