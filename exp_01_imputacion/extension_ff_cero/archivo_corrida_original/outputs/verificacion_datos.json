@@ -1,0 +1,30 @@
+{
+  "base_feature_count": 150,
+  "partitions": {
+    "train": {
+      "rows": 768499,
+      "months": [
+        201903,
+        201904,
+        201905,
+        201906,
+        201907,
+        201908
+      ],
+      "predictors": 750,
+      "identical_metadata_and_feature_order": true
+    },
+    "test": {
+      "rows": 135633,
+      "months": [
+        201910
+      ],
+      "predictors": 750,
+      "identical_metadata_and_feature_order": true
+    }
+  },
+  "test_fallbacks_match_declared_rules": true,
+  "residual_missing_cells_after_ff": 1224165,
+  "test_clients_with_residual_missing": 134032,
+  "features_with_no_training_median": []
+}

@@ -1,0 +1,79 @@
+{
+  "question": "Does zero fallback after causal forward fill improve October campaign gain relative to leaving residual missing values or replacing them with training medians?",
+  "user_committed_method": "FF_ZERO",
+  "source_commit": "27d9d941f47b3b0eeaa7c724990baf5361613ce8",
+  "source_repo": "https://github.com/AgustinBerna/experimentos-colaborativos",
+  "methods": [
+    "E0",
+    "E4",
+    "FF_ZERO",
+    "FF_MEDIAN_MICA"
+  ],
+  "hypothesis_before_this_run": "Zero may distinguish lack of recorded prior activity, but can also destroy informative absence and therefore may not improve on native missing handling or forward fill.",
+  "design": {
+    "final_train_months": [
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908
+    ],
+    "test_month": 201910,
+    "baseline_selection": "upstream/exp_01_imputacion/seleccion.json",
+    "trees": 280,
+    "contacts_N": 4323,
+    "seeds": "Same 30 values in upstream Exp1 config.json",
+    "new_optimization": false,
+    "primary_metric": "gain_at_n_fijo",
+    "secondary_metric": "roc_auc",
+    "comparisons": [
+      [
+        "FF_ZERO",
+        "E0"
+      ],
+      [
+        "FF_ZERO",
+        "E4"
+      ],
+      [
+        "FF_ZERO",
+        "FF_MEDIAN_MICA"
+      ]
+    ],
+    "test": "Paired Wilcoxon across common seeds, Holm across these three planned comparisons separately for each metric; describes model randomness on one October cohort, not temporal generalization."
+  },
+  "fallback_rules": {
+    "FF_ZERO": "Apply upstream causal forward fill by client to original features, then fill only residual nulls with numeric zero, before generating the same lags and deltas.",
+    "mica_comparability": "Aligned with inspected Mica E10 code at b4f92dc83ace1a068393c661ecf71c0e9e32d73a.",
+    "FF_MEDIAN_MICA": "Causal forward fill, then feature medians fitted on the forward-filled March-August training rows, then residual fill; follows Mica E10."
+  },
+  "controls": [
+    "Same upstream monthly zero-to-null audit and two excluded variables for all methods.",
+    "No target, client ID, month or partition field is imputed or used as a predictor.",
+    "Same original features and upstream row-based lags/deltas, same ordering.",
+    "September may provide feature history for October; November/December are used only for target construction and never as predictor history for earlier months.",
+    "All four methods rerun in the same local environment.",
+    "No parameters or variant choices are changed after seeing October results."
+  ],
+  "document_alignment": {
+    "document": "Original group experiment document",
+    "hypotheses": [
+      "H3 temporal imputation",
+      "H1 comparison against native NaN"
+    ],
+    "clarifications": [
+      "Document's March-June train and August validation refer to historical model selection; final training follows corrected March-August repository.",
+      "Document says original zeros are retained, but published pipeline converts monthly all-zero columns to null; retain common published preparation and disclose this difference.",
+      "Zero fallback is not a validated business-rule imputation under H4."
+    ]
+  },
+  "additional_experiments": "No new method for now. Describe how many residual missing cells/clients are affected and compare the existing four methods.",
+  "amendment": {
+    "date": "2026-11-17",
+    "reason": "User requested a shared median control with Mica.",
+    "timing": "After inspecting October results; post hoc comparison.",
+    "original": "archivo_corrida_original/protocol.json",
+    "published_results": "Mica E10 published metrics; no local retraining claimed."
+  }
+}

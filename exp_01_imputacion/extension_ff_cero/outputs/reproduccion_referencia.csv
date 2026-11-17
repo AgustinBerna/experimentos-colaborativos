@@ -1,0 +1,11 @@
+method,metric,max_abs_difference,all_close_1e_12
+E0,gain_at_n_fijo,0.0,true
+E0,roc_auc,0.0,true
+E0,pr_auc,0.0,true
+E0,auc_baja2,0.0,true
+E0,ap_baja2,0.0,true
+E4,gain_at_n_fijo,0.0,true
+E4,roc_auc,0.0,true
+E4,pr_auc,0.0,true
+E4,auc_baja2,0.0,true
+E4,ap_baja2,0.0,true

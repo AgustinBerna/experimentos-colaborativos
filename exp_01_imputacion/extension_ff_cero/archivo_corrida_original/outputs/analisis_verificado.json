@@ -1,0 +1,246 @@
+{
+  "status": "verified",
+  "summary": [
+    {
+      "method": "E0",
+      "label": "NaN nativos",
+      "seeds": 30,
+      "gain_mean": 290060833.3333333,
+      "gain_sd": 3107020.230485099,
+      "auc_mean": 0.9367191831913962,
+      "auc_sd": 0.0004484924652355203,
+      "gain_ensemble": 287017500.0,
+      "auc_ensemble": 0.9375056123506353
+    },
+    {
+      "method": "E4",
+      "label": "Forward fill",
+      "seeds": 30,
+      "gain_mean": 291344166.6666667,
+      "gain_sd": 3215901.582527946,
+      "auc_mean": 0.936863483358425,
+      "auc_sd": 0.0005335369563157015,
+      "gain_ensemble": 293617500.0,
+      "auc_ensemble": 0.9376988602788414
+    },
+    {
+      "method": "FF_ZERO",
+      "label": "Forward fill + cero",
+      "seeds": 30,
+      "gain_mean": 291417500.0,
+      "gain_sd": 2709879.753026335,
+      "auc_mean": 0.937238365992885,
+      "auc_sd": 0.0005355840627406308,
+      "gain_ensemble": 295817500.0,
+      "auc_ensemble": 0.938076981444181
+    },
+    {
+      "method": "FF_MEDIAN",
+      "label": "Forward fill + mediana",
+      "seeds": 30,
+      "gain_mean": 292114166.6666667,
+      "gain_sd": 3555421.6330142543,
+      "auc_mean": 0.937363808245719,
+      "auc_sd": 0.000581127371647432,
+      "gain_ensemble": 293617500.0,
+      "auc_ensemble": 0.9381678073166295
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "E0",
+      "n_pairs": 30,
+      "delta_mean": 1356666.6666666667,
+      "delta_sd": 3592778.516867463,
+      "delta_median": 1650000.0,
+      "wins": 17,
+      "ties": 3,
+      "losses": 10,
+      "p_wilcoxon": 0.038752626531129104,
+      "p_holm": 0.11625787959338732,
+      "significant_005": false
+    },
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "E4",
+      "n_pairs": 30,
+      "delta_mean": 73333.33333333333,
+      "delta_sd": 3698642.1863960433,
+      "delta_median": 0.0,
+      "wins": 12,
+      "ties": 5,
+      "losses": 13,
+      "p_wilcoxon": 0.9177082945192335,
+      "p_holm": 0.9177082945192335,
+      "significant_005": false
+    },
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "FF_MEDIAN",
+      "n_pairs": 30,
+      "delta_mean": -696666.6666666666,
+      "delta_sd": 3636641.4340075143,
+      "delta_median": -550000.0,
+      "wins": 9,
+      "ties": 6,
+      "losses": 15,
+      "p_wilcoxon": 0.2356065799272078,
+      "p_holm": 0.4712131598544156,
+      "significant_005": false
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "E0",
+      "n_pairs": 30,
+      "delta_mean": 0.0005191828015666668,
+      "delta_sd": 0.000631996674006628,
+      "delta_median": 0.000637611771,
+      "wins": 23,
+      "ties": 0,
+      "losses": 7,
+      "p_wilcoxon": 0.00018860027194023132,
+      "p_holm": 0.000565800815820694,
+      "significant_005": true
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "E4",
+      "n_pairs": 30,
+      "delta_mean": 0.00037488263453333326,
+      "delta_sd": 0.0005445202292494404,
+      "delta_median": 0.0003974204005,
+      "wins": 22,
+      "ties": 0,
+      "losses": 8,
+      "p_wilcoxon": 0.001038169488310814,
+      "p_holm": 0.002076338976621628,
+      "significant_005": true
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "FF_MEDIAN",
+      "n_pairs": 30,
+      "delta_mean": -0.00012544225289999998,
+      "delta_sd": 0.0006714827180133424,
+      "delta_median": -0.0001076168605,
+      "wins": 12,
+      "ties": 0,
+      "losses": 18,
+      "p_wilcoxon": 0.3284698575735092,
+      "p_holm": 0.3284698575735092,
+      "significant_005": false
+    }
+  ],
+  "reference_reproduction": [
+    {
+      "method": "E0",
+      "metric": "gain_at_n_fijo",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E0",
+      "metric": "roc_auc",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E0",
+      "metric": "pr_auc",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E0",
+      "metric": "auc_baja2",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E0",
+      "metric": "ap_baja2",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E4",
+      "metric": "gain_at_n_fijo",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E4",
+      "metric": "roc_auc",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E4",
+      "metric": "pr_auc",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E4",
+      "metric": "auc_baja2",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    },
+    {
+      "method": "E4",
+      "metric": "ap_baja2",
+      "max_abs_difference": 0.0,
+      "all_close_1e_12": true
+    }
+  ],
+  "data_checks": {
+    "base_feature_count": 150,
+    "partitions": {
+      "train": {
+        "rows": 768499,
+        "months": [
+          201903,
+          201904,
+          201905,
+          201906,
+          201907,
+          201908
+        ],
+        "predictors": 750,
+        "identical_metadata_and_feature_order": true
+      },
+      "test": {
+        "rows": 135633,
+        "months": [
+          201910
+        ],
+        "predictors": 750,
+        "identical_metadata_and_feature_order": true
+      }
+    },
+    "test_fallbacks_match_declared_rules": true,
+    "residual_missing_cells_after_ff": 1224165,
+    "test_clients_with_residual_missing": 134032,
+    "features_with_no_training_median": []
+  },
+  "missingness_october": {
+    "foto_mes": 201910,
+    "rows": 135633,
+    "missing_cells_before_ff": 3322156,
+    "missing_cells_after_ff": 1224165,
+    "clients_with_remaining_missing": 134032,
+    "fraction_missing_filled_by_ff": 0.6315148957484236,
+    "fraction_clients_with_residual_missing": 0.988196087972691
+  },
+  "source_commit": "27d9d941f47b3b0eeaa7c724990baf5361613ce8",
+  "test_scope": "30 model seeds on one fixed October cohort, not independent temporal samples. Exploratory: the team had already examined October while proposing variants; the four local methods and controls were fixed before this run.",
+  "statistical_test": "Two-sided paired Wilcoxon, zero_method=zsplit, scipy auto; differences rounded to 12 decimals; Holm for 3 predeclared comparisons separately for each metric",
+  "all_predictions_and_metrics_verified": true
+}

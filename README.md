@@ -7,8 +7,11 @@
 |---|---|---:|---:|---|
 | [Exp 1 · Imputación](exp_01_imputacion/) | NaN basal y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
 | [Exp 2 · Indicadores con lags y deltas](exp_02_indicadores_missing/) | Mismo que Exp1 pero agregando  indicadores de missing sus lags y delta lags; optimización propia de E0 | 361 | 4352 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar HTML](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
+| [Extensión de Exp1 · FF + cero](exp_01_imputacion/extension_ff_cero/) | Relleno residual con cero tras forward fill y control FF + mediana | 280 | 4323 | [Resultados y reproducción](exp_01_imputacion/extension_ff_cero/README.md#resultados-con-el-control-compartido) |
 
-Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de 2019** y evalúan **octubre de 2019**, con 30 semillas comunes por método.
+Exp1 y Exp2 entrenan finalmente y ajustan imputadores con **marzo–agosto de 2019** y evalúan **octubre de 2019**, con 30 semillas comunes por método.
+
+La extensión conserva la configuración de Exp1. Compara FF + cero con E0, E4 y FF + mediana. Combina 90 evaluaciones locales y 30 evaluaciones publicadas del control de mediana, tras comprobar la coincidencia por semilla de E0/E4. La armonización fue posterior a la corrida original, sin reentrenamiento del control. El código y los resultados agregados están en `exp_01_imputacion/extension_ff_cero/`; el dataset y las predicciones individuales se obtienen por separado y no se incluyen.
 
 ## Búsqueda de hiperparámetros
 

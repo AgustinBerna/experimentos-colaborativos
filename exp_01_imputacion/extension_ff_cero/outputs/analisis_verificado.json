@@ -1,0 +1,218 @@
+{
+  "status": "aligned_existing_results",
+  "date": "2026-11-17",
+  "summary": [
+    {
+      "method": "E0",
+      "label": "NaN nativos",
+      "seeds": 30,
+      "gain_mean": 290060833.3333333,
+      "gain_sd": 3107020.230485099,
+      "auc_mean": 0.9367191831913962,
+      "auc_sd": 0.00044849246523552034,
+      "gain_ensemble": 287017500.0,
+      "auc_ensemble": 0.9375056123506353,
+      "source": "Florencia"
+    },
+    {
+      "method": "E4",
+      "label": "Forward fill",
+      "seeds": 30,
+      "gain_mean": 291344166.6666667,
+      "gain_sd": 3215901.5825279457,
+      "auc_mean": 0.9368634833584248,
+      "auc_sd": 0.0005335369563157015,
+      "gain_ensemble": 293617500.0,
+      "auc_ensemble": 0.9376988602788414,
+      "source": "Florencia"
+    },
+    {
+      "method": "FF_ZERO",
+      "label": "Forward fill + cero",
+      "seeds": 30,
+      "gain_mean": 291417500.0,
+      "gain_sd": 2709879.7530263346,
+      "auc_mean": 0.937238365992885,
+      "auc_sd": 0.0005355840627406307,
+      "gain_ensemble": 295817500.0,
+      "auc_ensemble": 0.938076981444181,
+      "source": "Florencia"
+    },
+    {
+      "method": "FF_MEDIAN_MICA",
+      "label": "FF + mediana después de FF (Mica)",
+      "seeds": 30,
+      "gain_mean": 292480833.3333333,
+      "gain_sd": 4240484.953832304,
+      "auc_mean": 0.9374465050014876,
+      "auc_sd": 0.00044092387879445183,
+      "gain_ensemble": 294717500.0,
+      "auc_ensemble": 0.9382508647566918,
+      "source": "Micaela_E10"
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "E0",
+      "n_pairs": 30,
+      "delta_mean": 1356666.6666666667,
+      "delta_sd": 3592778.516867463,
+      "delta_median": 1650000.0,
+      "wins": 17,
+      "ties": 3,
+      "losses": 10,
+      "p_wilcoxon": 0.038752626531129104,
+      "p_holm": 0.11625787959338732,
+      "significant_005": false
+    },
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "E4",
+      "n_pairs": 30,
+      "delta_mean": 73333.33333333333,
+      "delta_sd": 3698642.1863960433,
+      "delta_median": 0.0,
+      "wins": 12,
+      "ties": 5,
+      "losses": 13,
+      "p_wilcoxon": 0.9177082945192335,
+      "p_holm": 0.9177082945192335,
+      "significant_005": false
+    },
+    {
+      "metric": "gain_at_n_fijo",
+      "method": "FF_ZERO",
+      "comparator": "FF_MEDIAN_MICA",
+      "n_pairs": 30,
+      "delta_mean": -1063333.3333333333,
+      "delta_sd": 4110582.082560968,
+      "delta_median": -1100000.0,
+      "wins": 9,
+      "ties": 3,
+      "losses": 18,
+      "p_wilcoxon": 0.18001625070218752,
+      "p_holm": 0.36003250140437504,
+      "significant_005": false
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "E0",
+      "n_pairs": 30,
+      "delta_mean": 0.0005191828015666668,
+      "delta_sd": 0.000631996674006628,
+      "delta_median": 0.000637611771,
+      "wins": 23,
+      "ties": 0,
+      "losses": 7,
+      "p_wilcoxon": 0.00018860027194023132,
+      "p_holm": 0.000565800815820694,
+      "significant_005": true
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "E4",
+      "n_pairs": 30,
+      "delta_mean": 0.00037488263453333326,
+      "delta_sd": 0.0005445202292494404,
+      "delta_median": 0.0003974204005,
+      "wins": 22,
+      "ties": 0,
+      "losses": 8,
+      "p_wilcoxon": 0.001038169488310814,
+      "p_holm": 0.002076338976621628,
+      "significant_005": true
+    },
+    {
+      "metric": "roc_auc",
+      "method": "FF_ZERO",
+      "comparator": "FF_MEDIAN_MICA",
+      "n_pairs": 30,
+      "delta_mean": -0.00020813900856666664,
+      "delta_sd": 0.0006138589818659116,
+      "delta_median": -0.0002773380885,
+      "wins": 9,
+      "ties": 0,
+      "losses": 21,
+      "p_wilcoxon": 0.11907656863331795,
+      "p_holm": 0.11907656863331795,
+      "significant_005": false
+    }
+  ],
+  "reference_reproduction": [
+    {
+      "method": "E0",
+      "metric": "roc_auc",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E0",
+      "metric": "pr_auc",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E0",
+      "metric": "auc_baja2",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E0",
+      "metric": "ap_baja2",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E0",
+      "metric": "gain_at_n_fijo",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E0",
+      "metric": "n_fijo_evaluado",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "roc_auc",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "pr_auc",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "auc_baja2",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "ap_baja2",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "gain_at_n_fijo",
+      "max_abs_difference": 0.0
+    },
+    {
+      "method": "E4",
+      "metric": "n_fijo_evaluado",
+      "max_abs_difference": 0.0
+    }
+  ],
+  "source_commit_mica": "b4f92dc83ace1a068393c661ecf71c0e9e32d73a",
+  "source_hashes": {
+    "resumen_ensamble.csv": "c1d1906228ef7b9082a427bd0c95c57897572a6c754137741b62a9d995cdc4d1",
+    "metricas_por_semilla.csv": "850fa6c5fb331674ace4c1e4e968555be7140840b6b25787394248dc6755dd7d",
+    "03_imputar_extra.py": "dc403a67d4098b73c605edeb431633205e3a154e4c5e11c9547e214a3789a2ae"
+  },
+  "provenance": "90 existing local fits (E0/E4/FF_ZERO) plus 30 published Mica E10 fits. No retraining in this alignment. Mica's individual predictions were not supplied or reverified.",
+  "protocol_change": "Median control changed on 2026-11-17 after viewing results to align the definition with Mica. This is a post hoc harmonized comparison, not one fixed before the original experiment.",
+  "test_scope": "30 common model seeds, one fixed October cohort; not independent temporal samples.",
+  "median_definition": "Fit medians on March-August training rows after causal forward fill; then fill remaining nulls before lags/deltas."
+}
