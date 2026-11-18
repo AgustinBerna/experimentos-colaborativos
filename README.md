@@ -5,7 +5,7 @@
 
 | Experimento | Descripción | Árboles E0 | N | Resultados |
 |---|---|---:|---:|---|
-| [Exp 1 · Imputación](exp_01_imputacion/) | NaN basal y seis imputaciones | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
+| [Exp 1 · Imputación](exp_01_imputacion/) | NaN basal y siete imputaciones, incluyendo E7 con ceros | 280 | 4323 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp1.html) · [Descargar HTML](exp_01_imputacion/resultados/dashboard_comparativo.html) |
 | [Exp 2 · Indicadores con lags y deltas](exp_02_indicadores_missing/) | Mismo que Exp1 pero agregando  indicadores de missing sus lags y delta lags; optimización propia de E0 | 361 | 4352 | [Ver online](https://agustinberna.github.io/experimentos-colaborativos/exp2-marzo-agosto.html) · [Descargar HTML](exp_02_indicadores_missing/resultados/dashboard_comparativo.html) |
 
 Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de 2019** y evalúan **octubre de 2019**, con 30 semillas comunes por método.
@@ -19,3 +19,7 @@ Cada carpeta incluye resultados CSV, dashboard autocontenido
 ## GitHub Pages
 
 La portada está en docs/index.html. Exp1 se mantiene en exp1.html; Exp2 en exp2-marzo-agosto.html, con los alias exp2.html y dashboard_indicadores_v3.html. El workflow de Pages publica docs al actualizar main.
+
+## E7: imputación por cero
+
+Se incorpora E7 con las mismas 30 semillas y la selección congelada de cada experimento, sin repetir Optuna ni reentrenar E0–E6. [Código y ejecución en GCP](e7_ceros_gcp/README.md). Los dashboards incluyen ocho métodos y porcentaje de NaN por variable en train/test. Holm se recalculó con siete alternativas por métrica.

@@ -12,13 +12,14 @@
 
 ### Métodos y particiones temporales
 
-Se compararon siete tratamientos de valores faltantes, manteniendo las mismas particiones temporales y 30 semillas comunes de LightGBM por método:
+Se compararon ocho tratamientos de valores faltantes, manteniendo las mismas particiones temporales y 30 semillas comunes de LightGBM por método:
 
 - **E0:** tratamiento nativo de valores faltantes de LightGBM.
 - **E1, E2 y E3:** imputación por media, mediana y moda, respectivamente.
 - **E4:** forward fill causal por cliente, utilizando únicamente observaciones anteriores.
 - **E5:** imputación iterativa mediante BayesianRidge, ajustada sobre una muestra de 60.000 filas, con 10 rondas y 25 variables vecinas.
 - **E6:** imputación mediante miceforest/LightGBM, con 5 rondas, 100 iteraciones por variable y predictive mean matching con 5 donantes.
+- **E7:** imputación de null/NaN de las variables base con cero, antes de construir lags y deltas. Los faltantes por ausencia de historia permanecen nulos.
 
 ### Preparación de variables
 
@@ -63,3 +64,12 @@ El código de Exp1_marzo_agosto_GCP.zip reemplaza al pipeline histórico. Los **
 [EJECUCION_PAQUETE.md](EJECUCION_PAQUETE.md) conserva el README original del ZIP y sus instrucciones de ejecución. SHA256.json es el manifiesto original del paquete: su entrada README.md corresponde al archivo archivado aquí como EJECUCION_PAQUETE.md. Los tests heredados del repositorio histórico no certifican esta variante con selección congelada.
 
 No se publican el dataset, modelos ni predicciones individuales.
+
+
+### Incorporación posterior de E7
+
+E7 utilizó exactamente las 30 semillas, los hiperparámetros, los árboles y N congelados de este experimento, sin ejecutar Optuna. E0–E6 no se reentrenaron y sus métricas y curvas se conservaron. Se recalculó Holm con siete alternativas frente a E0, por métrica. La metodología de búsqueda anterior permanece sin cambios.
+
+El entorno de E7 registró Python 3.14.4 y LightGBM 4.5.0; las versiones efectivamente instaladas están en [entorno_reproducible.txt](E7/entorno_reproducible.txt). Estos registros no certifican las versiones instaladas en E0–E6. Ver [identidad E7](E7/run_identity.json), [auditoría final](E7/final_fit_audit.json) y [código e instrucciones](../e7_ceros_gcp/README.md). Los config.json históricos se conservan sin agregar E7: el ejecutor adicional reutiliza esas selecciones.
+
+El dashboard reemplaza el panel de variables rotas por [porcentaje de NaN por variable en train y test](resultados/porcentaje_na_train_test.csv): null y NaN sobre las 150 variables base, después de la auditoría original y antes de imputar. Train marzo–agosto; test octubre. Los porcentajes se ponderan por cantidad de filas. No incluye las dos variables excluidas ni indicadores o derivados.

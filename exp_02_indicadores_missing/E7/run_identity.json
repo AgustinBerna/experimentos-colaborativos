@@ -1,0 +1,234 @@
+{
+  "format_version": 1,
+  "experiment": "exp2",
+  "method": "E7",
+  "source_run_identity": {
+    "config_sha256": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
+    "data_sha256": "6c3ec2fb4d94521c0c3cc72988c4019c8b65a157d81e0f3b6d7e1b87e0c306f4",
+    "selection_policy": "own_Exp3_E0_then_freeze_before_test",
+    "code_sha256": {
+      "01_auditar.py": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "02_particionar.py": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "03_imputar_baseline.py": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "03_imputar_miceforest.py": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "03_imputar_multivariada.py": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "03_imputar_temporal.py": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "03_imputar_univariada.py": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "04_modelar_evaluar.py": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+      "05_estado.py": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "dashboard.R": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
+      "install_r_packages.R": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "requirements.txt": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "run_pipeline.py": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+      "src/fe_imputacion.py": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+      "src/remote.py": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d"
+    },
+    "python": "3.14.4"
+  },
+  "config": {
+    "Id_col": "numero_de_cliente",
+    "time_col": "foto_mes",
+    "target_col": "clase_ternaria",
+    "all_months": [
+      201901,
+      201902,
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908,
+      201909,
+      201910,
+      201911,
+      201912
+    ],
+    "excluded_months": [
+      201911,
+      201912
+    ],
+    "train_months": [
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908
+    ],
+    "valid_month": 201908,
+    "test_month": 201910,
+    "exclude_all_empty_train": true,
+    "missing_indicator_suffix": "__ausente",
+    "methods": [
+      "E0",
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E06"
+    ],
+    "ridge": {
+      "fit_sample_size": 60000,
+      "max_iter": 10,
+      "n_nearest_features": 25
+    },
+    "miceforest": {
+      "fit_sample_size": 0,
+      "iterations": 5,
+      "lgbm_num_iterations": 100,
+      "data_subset": 0,
+      "mean_match_candidates": 5
+    },
+    "gain": {
+      "tp_value": 1072500,
+      "fp_value": -27500,
+      "smoothing_radius_n": 500
+    },
+    "optimization": {
+      "trials": 50,
+      "num_boost_round": 2000,
+      "early_stopping_rounds": 100,
+      "bagging_freq": 1,
+      "search_space": {
+        "num_leaves": [
+          16,
+          256
+        ],
+        "learning_rate": [
+          0.01,
+          0.2
+        ],
+        "min_data_in_leaf": [
+          20,
+          2000
+        ],
+        "feature_fraction": [
+          0.2,
+          0.9
+        ],
+        "bagging_fraction": [
+          0.5,
+          1
+        ]
+      }
+    },
+    "seeds": [
+      100003,
+      100019,
+      100043,
+      100049,
+      100057,
+      100069,
+      100103,
+      100109,
+      100129,
+      100151,
+      100163,
+      100169,
+      100183,
+      100189,
+      100193,
+      100207,
+      100213,
+      100237,
+      100267,
+      100271,
+      100279,
+      100291,
+      100297,
+      100313,
+      100333,
+      100343,
+      100357,
+      100361,
+      100363,
+      100379
+    ],
+    "feature_selection_months": [
+      201903,
+      201904,
+      201905,
+      201906
+    ],
+    "missing_indicator_lags": [
+      1,
+      2
+    ],
+    "missing_indicator_deltas": true,
+    "optimization_train_months": [
+      201903,
+      201904,
+      201905,
+      201906
+    ],
+    "optimization_valid_month": 201908,
+    "optimization_mode": "own_E0"
+  },
+  "selection": {
+    "source_method": "E0",
+    "source_experiment": "Exp3",
+    "optimization_train_months": [
+      201903,
+      201904,
+      201905,
+      201906
+    ],
+    "optimization_valid_month": 201908,
+    "final_train_months": [
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908
+    ],
+    "best_auc_valid": 0.9380103175014312,
+    "best_iteration": 361,
+    "n_selected_valid": 4352,
+    "gain_valid_at_n": 212520000.0,
+    "gain_valid_smoothed_at_n": 212803516.48351648,
+    "smoothing_radius_n": 500,
+    "n_raw_max_valid": 3889,
+    "best_params": {
+      "num_leaves": 180,
+      "learning_rate": 0.01569508027256663,
+      "min_data_in_leaf": 1861,
+      "feature_fraction": 0.5605860994267067,
+      "bagging_fraction": 0.8683943915533908
+    }
+  },
+  "source_files_sha256": {
+    "run_identity.json": "e330b5eca62d64cfb2d7ca1e49fb6206e5bc88bab3c7ee34cf90936e947b1724",
+    "E0/optimization/seleccion.json": "8950c2cd6806bf2becfe46ea5908ebbfc7ddb6967cd228c7a9fd15756325bf01",
+    "partition/panel_2019.parquet": "961d10b8f1628351b7f36873beb881aadb76f56eb16cb7984af1eb1b8d2908c8",
+    "resultados/metricas_por_semilla_test.csv": "4e5156f9918a348432c663e048a87dd18e6fd88aea0f544e3d9df1377dc42d9c",
+    "resultados/curvas_por_semilla_test.csv": "6c666857598c0999ebcd6f48413c3885689f344398c25c1729575c92cb14ce1e",
+    "resultados/resumen_ensamble_test.csv": "761f143eea7a46b1629c3f6f3675b5bb6f2b3fa7f51ff7ef35b659af605a48ee",
+    "resultados/curvas_ensamble_test.csv": "a357d12be76e30aa4d96fbf7bedd0f1b65c542e8d04befd398821794fc961c7c"
+  },
+  "code_sha256": {
+    "correr_e7.py": "09a0b5cba1ed8817554eb70acc2dbe851ba80b8712243014e568e0b08c878467",
+    "dashboard.py": "e05039b2b128bf24d91cc4326d21c3e7e4e0032a116cc7c188642f309ce48fa3",
+    "metricas.py": "4ca46ed8cef07d42cf027aacd0017d17940814ca7c59d2542c558b5c73e855c9",
+    "referencia/exp1/fe_imputacion.py": "bc4923efebf936fd22e59ffb0c7c6e47f050c4be81be56506fdcde76418c5e0e",
+    "referencia/exp2/04_modelar_evaluar.py": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+    "referencia/exp2/fe_imputacion.py": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+    "tests/test_e7.py": "d1158f45b7cc3a8d6b064eb89bb985aac58f79d0ccbe4adb206c84c3ec0b8246"
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "platform": "Linux-7.0.0-1011-gcp-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.5",
+      "polars": "2.1.0",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.5.0"
+    },
+    "threads": 7
+  },
+  "imputation": "base null/NaN -> 0 before temporal features; indicators unchanged; missing history remains null",
+  "new_optimization": false,
+  "source_run_modified": false
+}

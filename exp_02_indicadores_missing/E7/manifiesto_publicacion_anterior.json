@@ -1,0 +1,161 @@
+{
+  "experiment": "exp_02_indicadores_missing",
+  "published_name": "Exp2: indicadores de ausencia con lags y deltas; optimización propia de E0",
+  "original_run_experiment": "Exp3",
+  "original_html_sha256": "8e3e6397e286d41403f55292c113b4f600f6bf8e00a64efb98e1e7522fa8a00a",
+  "published_html_sha256": "3305b3f76e29127b5b64ee2fc87907c9f69b559ba250429358d120c41f8dba04",
+  "dependencies_sha256": {
+    "lib/htmlwidgets-1.6.4/htmlwidgets.js": "4578d2a0732228ac3381eb2b3dfd81d30dc1d8000beb96a1b20e4f2088b2b9a4",
+    "lib/datatables-binding-0.34.0/datatables.js": "be05866c167d992b4bb125b4fe6e4f59bd15684e3895a7b71b10bf3b5525f039",
+    "lib/jquery-3.6.0/jquery-3.6.0.min.js": "ff1523fb7389539c84c65aba19260648793bb4f5e29329d2ee8804bc37a3fe6e",
+    "lib/dt-core-1.13.6/js/jquery.dataTables.min.js": "24362c145a81e1e2fd95185c4300d2595afb2cadd9f1580c2ddce95bc19b2084",
+    "lib/crosstalk-1.2.2/js/crosstalk.min.js": "abd7f07e2e8acbe5ba7aa3dc76712efaece662fb65560fbbcb3e8fb1df66b2e9",
+    "lib/plotly-binding-4.12.1/plotly.js": "56288752cfa1613e53ced81ac2769ba23674feebf32cbd171ff5f22a747077e9",
+    "lib/typedarray-0.1/typedarray.min.js": "d95dda2a9a0ac6d74f2a473074b9d613b5a43a83b1dbc8590c247d9da1e22b3b",
+    "lib/plotly-main-2.25.2/plotly-latest.min.js": "419deebe105f4c993feb7e6d1fe94fb1c2f7f98716db5d9b8fe3e37773838898",
+    "lib/htmltools-fill-0.5.9/fill.css": "0f41825dd6d8bb9923f39a10cd5de929daf009243c64e3e30fc008e45b8c3325",
+    "lib/datatables-css-0.0.0/datatables-crosstalk.css": "307bdda9489717def72ee62ace5d657c53aba18d04e572306b0899b58d5ef0d2",
+    "lib/dt-core-1.13.6/css/jquery.dataTables.min.css": "5e9bf0ca99854ef5cde954de1b15f0410c38d658d8a8f9048003911aa6b36b26",
+    "lib/dt-core-1.13.6/css/jquery.dataTables.extra.css": "d09c0bac7716c2864745996c76abb5342e50f6a87f395b6cf98ccf79aea41714",
+    "lib/crosstalk-1.2.2/css/crosstalk.min.css": "47bfd8c2b16c29c0c5d03656963e26730f7c566f8f7ea9dd4448bbaaca09ca0d",
+    "lib/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css": "44356da5c42f304af74d60ee75225f216d5241f353f07fdef30c99536e103d9b"
+  },
+  "widgets": 7,
+  "methods": [
+    "E0 · NaN nativo",
+    "E06 · miceforest",
+    "E1 · Media",
+    "E2 · Mediana",
+    "E3 · Moda",
+    "E4 · Forward fill",
+    "E5 · Ridge 60k/10/25"
+  ],
+  "all_widget_data_preserved": true,
+  "unresolved_dependencies": [],
+  "transformations": [
+    "Dependencias locales JavaScript/CSS embebidas",
+    "Tabla sin paginación",
+    "Nombre visible Exp3 cambiado a Exp2 para publicación; archivos originales de identidad y selección conservados",
+    "Idioma español y adaptación a pantalla móvil"
+  ],
+  "results_sha256": {
+    "curvas_por_semilla_test.csv": "6c666857598c0999ebcd6f48413c3885689f344398c25c1729575c92cb14ce1e",
+    "metricas_por_semilla_test.csv": "4e5156f9918a348432c663e048a87dd18e6fd88aea0f544e3d9df1377dc42d9c",
+    "resumen_ensamble_test.csv": "761f143eea7a46b1629c3f6f3675b5bb6f2b3fa7f51ff7ef35b659af605a48ee",
+    "curvas_ensamble_test.csv": "a357d12be76e30aa4d96fbf7bedd0f1b65c542e8d04befd398821794fc961c7c"
+  },
+  "code_files": [
+    {
+      "file": "01_auditar.py",
+      "run_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "published_sha256": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "matches": true
+    },
+    {
+      "file": "02_particionar.py",
+      "run_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "published_sha256": "0525fe72f54fb2479873d30c6a4b7bebe43f7f29e9ed8dad3ea9dfe08b9ff276",
+      "matches": true
+    },
+    {
+      "file": "03_imputar_baseline.py",
+      "run_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "published_sha256": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "matches": true
+    },
+    {
+      "file": "03_imputar_miceforest.py",
+      "run_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "published_sha256": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "matches": true
+    },
+    {
+      "file": "03_imputar_multivariada.py",
+      "run_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "published_sha256": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "matches": true
+    },
+    {
+      "file": "03_imputar_temporal.py",
+      "run_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "published_sha256": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "matches": true
+    },
+    {
+      "file": "03_imputar_univariada.py",
+      "run_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "published_sha256": "bf9d3b3aa8774b65891372f926edd3404040e72cafd3d3f3c83e8c6dfdeb9ed2",
+      "matches": true
+    },
+    {
+      "file": "04_modelar_evaluar.py",
+      "run_sha256": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+      "published_sha256": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+      "matches": true
+    },
+    {
+      "file": "05_estado.py",
+      "run_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "published_sha256": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "matches": true
+    },
+    {
+      "file": "dashboard.R",
+      "run_sha256": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
+      "published_sha256": "454b6a48883898046bbab7b2bb9764c7aa757eb6d2c8119c32a9b1d3a9c5f099",
+      "matches": true
+    },
+    {
+      "file": "install_r_packages.R",
+      "run_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "published_sha256": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "matches": true
+    },
+    {
+      "file": "requirements.txt",
+      "run_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "published_sha256": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "matches": true
+    },
+    {
+      "file": "run_pipeline.py",
+      "run_sha256": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+      "published_sha256": "75dbf80a5e150ac69411681171108b76c63d53d7658397ed8379e58d6c794e27",
+      "matches": true
+    },
+    {
+      "file": "src/fe_imputacion.py",
+      "run_sha256": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+      "published_sha256": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+      "matches": true
+    },
+    {
+      "file": "src/remote.py",
+      "run_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "published_sha256": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d",
+      "matches": true
+    }
+  ],
+  "config_sha256": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
+  "selection_sha256": "8950c2cd6806bf2becfe46ea5908ebbfc7ddb6967cd228c7a9fd15756325bf01",
+  "run_identity_sha256": "e330b5eca62d64cfb2d7ca1e49fb6206e5bc88bab3c7ee34cf90936e947b1724",
+  "run_identity_verified": true,
+  "run_identity_verification_scope": "Los 15 archivos de código y config.json coinciden con los hashes de la corrida suministrada.",
+  "dataset_hash_independently_verified": false,
+  "installed_dependency_versions_independently_verified": false,
+  "new_training_executed": false,
+  "validation": {
+    "seed_rows": 210,
+    "methods": 7,
+    "seeds_per_method": 30,
+    "ensemble_rows": 7,
+    "n": 4352,
+    "best_iteration": 361,
+    "validation_curve_rows": 131776,
+    "original_indicators": 150,
+    "indicator_lags": 300,
+    "indicator_deltas": 300,
+    "features_E0": 1500
+  },
+  "provenance_limit": "Corrida denominada Exp3 en GCP, publicada como Exp2. Se conservaron los metadatos originales; dataset y entorno instalado no disponibles para verificación independiente."
+}

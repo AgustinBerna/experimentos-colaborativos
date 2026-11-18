@@ -1,0 +1,201 @@
+{
+  "format_version": 1,
+  "experiment": "exp1",
+  "method": "E7",
+  "source_run_identity": {
+    "config_sha256": "e8c038623fa66ed285b14755bd92f7e1e0757713ea804265f9642e7b517eb7a8",
+    "data_sha256": "6c3ec2fb4d94521c0c3cc72988c4019c8b65a157d81e0f3b6d7e1b87e0c306f4",
+    "selection_sha256": "be509e137eda82a75e983d2ffba19e8c608d8da4eaa9a605ce435016359e89d6",
+    "code_sha256": {
+      "01_auditar.py": "60b73e51fd5a06e7360437993b5ba3cb9a4a45e19b19b2d07866d57a7c5f7462",
+      "02_particionar.py": "5a0a1fb715cd7afe215bd2447d5bfe464e2add8fdccc9f8aa487f602c2bd5a9b",
+      "03_imputar_baseline.py": "05cd7cd164578f5e5c2dfca47c77a0f0dce49be8802aea010d3a257419814e20",
+      "03_imputar_miceforest.py": "51c1f8fe6df6bd3abf47d9f5a3ee22050c11ae59703c549de422d8a23c1105c7",
+      "03_imputar_multivariada.py": "c6569e4a015fa03ede0be2575075063f641b18ddab2214e255cd534b3fb18245",
+      "03_imputar_temporal.py": "60548e601e73df5691edf086037aee2e02ddf0e3f90e60608007def4abe87fd1",
+      "03_imputar_univariada.py": "7da0d04587d156f8d76ac06184c0b8af7bf3e6549bd94e39282228d803766f29",
+      "04_modelar_evaluar.py": "f51a6fd90e9e2d8f5dd93b59af2304cca49d7cfb1e6f01615500d98b6303afcc",
+      "05_estado.py": "f6e44be06851573513ec255950a8d74e82c4a05e79ba625ba739cb0c30e77df1",
+      "dashboard.R": "c439c77710431821070bf0d03f357a08b395fcd385904431ba07586d91716e3c",
+      "install_r_packages.R": "a75f397dcac1477a748fb10fbbc0bee49f9cab2b48df3257af8e3782f567b59b",
+      "requirements.txt": "de523c30c0f8aacf124c7d49537f011beb0b3af5675d117c6c4deef6b95ef3ca",
+      "run_pipeline.py": "8fb6a1835e0295426352048c52829fd58c249954e05f85d9a81e8858832648e0",
+      "src/fe_imputacion.py": "bc4923efebf936fd22e59ffb0c7c6e47f050c4be81be56506fdcde76418c5e0e",
+      "src/remote.py": "11791770297bf06f58e9518041c97dc88141139c499c551a3ef9437201788e5d"
+    },
+    "python": "3.14.4"
+  },
+  "config": {
+    "Id_col": "numero_de_cliente",
+    "time_col": "foto_mes",
+    "target_col": "clase_ternaria",
+    "all_months": [
+      201901,
+      201902,
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908,
+      201909,
+      201910,
+      201911,
+      201912
+    ],
+    "excluded_months": [
+      201911,
+      201912
+    ],
+    "train_months": [
+      201903,
+      201904,
+      201905,
+      201906,
+      201907,
+      201908
+    ],
+    "valid_month": 201908,
+    "test_month": 201910,
+    "drop_features_without_history": [
+      "tmobile_app",
+      "cmobile_app_trx"
+    ],
+    "methods": [
+      "E0",
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E06"
+    ],
+    "ridge": {
+      "fit_sample_size": 60000,
+      "max_iter": 10,
+      "n_nearest_features": 25
+    },
+    "miceforest": {
+      "fit_sample_size": 0,
+      "iterations": 5,
+      "lgbm_num_iterations": 100,
+      "data_subset": 0,
+      "mean_match_candidates": 5
+    },
+    "gain": {
+      "tp_value": 1072500,
+      "fp_value": -27500,
+      "smoothing_radius_n": 500
+    },
+    "optimization": {
+      "trials": 50,
+      "num_boost_round": 2000,
+      "early_stopping_rounds": 100,
+      "bagging_freq": 1,
+      "search_space": {
+        "num_leaves": [
+          16,
+          256
+        ],
+        "learning_rate": [
+          0.01,
+          0.2
+        ],
+        "min_data_in_leaf": [
+          20,
+          2000
+        ],
+        "feature_fraction": [
+          0.2,
+          0.9
+        ],
+        "bagging_fraction": [
+          0.5,
+          1
+        ]
+      }
+    },
+    "seeds": [
+      100003,
+      100019,
+      100043,
+      100049,
+      100057,
+      100069,
+      100103,
+      100109,
+      100129,
+      100151,
+      100163,
+      100169,
+      100183,
+      100189,
+      100193,
+      100207,
+      100213,
+      100237,
+      100267,
+      100271,
+      100279,
+      100291,
+      100297,
+      100313,
+      100333,
+      100343,
+      100357,
+      100361,
+      100363,
+      100379
+    ]
+  },
+  "selection": {
+    "source_method": "E0",
+    "best_auc_valid": 0.9376034219638002,
+    "best_iteration": 280,
+    "n_selected_valid": 4323,
+    "gain_valid_at_n": 212217500.0,
+    "gain_valid_smoothed_at_n": 212257060.43956044,
+    "smoothing_radius_n": 500,
+    "n_raw_max_valid": 4645,
+    "best_params": {
+      "num_leaves": 86,
+      "learning_rate": 0.020524787613166923,
+      "min_data_in_leaf": 1459,
+      "feature_fraction": 0.41230764615277504,
+      "bagging_fraction": 0.943002139120749
+    }
+  },
+  "source_files_sha256": {
+    "run_identity.json": "f9f755d274e21401fb0c403fdd329925c77a4c3432ae4ceb74730c20960bdcdd",
+    "E0/optimization/seleccion.json": "7967687d26090cfc738c6b7e8703757ab4a9845c9c274ef1a23d361c6289b351",
+    "partition/panel_2019.parquet": "5b70e0ed1500d68e86f309823fde628fd9c0676c252b648e5ccb6b60199b137a",
+    "resultados/metricas_por_semilla_test.csv": "12fe079a69d2ce9d0bc0d86cdd07a2bf1acf852c231a7a4853ba8d47b71e1552",
+    "resultados/curvas_por_semilla_test.csv": "0e82f5a5b7167bcd0bbcf688ef12f1c814720a6e378afd5fbcd63f64368f7531",
+    "resultados/resumen_ensamble_test.csv": "05bc1ddf8cfdc448b348908c060f9340c982f1f0f5b7628016e1cd5b07e7ae1d",
+    "resultados/curvas_ensamble_test.csv": "cd9ff5df2ecd2c64e7a1e17a011b2814bd19fd4fd25d4c336b70ea75ac47e514"
+  },
+  "code_sha256": {
+    "correr_e7.py": "09a0b5cba1ed8817554eb70acc2dbe851ba80b8712243014e568e0b08c878467",
+    "dashboard.py": "e05039b2b128bf24d91cc4326d21c3e7e4e0032a116cc7c188642f309ce48fa3",
+    "metricas.py": "4ca46ed8cef07d42cf027aacd0017d17940814ca7c59d2542c558b5c73e855c9",
+    "referencia/exp1/fe_imputacion.py": "bc4923efebf936fd22e59ffb0c7c6e47f050c4be81be56506fdcde76418c5e0e",
+    "referencia/exp2/04_modelar_evaluar.py": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+    "referencia/exp2/fe_imputacion.py": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+    "tests/test_e7.py": "d1158f45b7cc3a8d6b064eb89bb985aac58f79d0ccbe4adb206c84c3ec0b8246"
+  },
+  "runtime": {
+    "python": "3.14.4",
+    "platform": "Linux-7.0.0-1011-gcp-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.5",
+      "polars": "2.1.0",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "lightgbm": "4.5.0"
+    },
+    "threads": 7
+  },
+  "imputation": "base null/NaN -> 0 before temporal features; indicators unchanged; missing history remains null",
+  "new_optimization": false,
+  "source_run_modified": false
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@@TITLE@@ · Comparación de imputaciones</title>
+<style>
+:root{font:15px system-ui,sans-serif;color:#182438;background:#f2f5fa}*{box-sizing:border-box}body{margin:0}main{max-width:1420px;margin:auto;padding:28px}h1{font-size:30px;margin:6px 0}h2{font-size:21px;margin:0 0 14px}h3{font-size:17px}p{line-height:1.55;max-width:1100px}.eyebrow{color:#465b77;font-size:13px;letter-spacing:.08em;text-transform:uppercase}.muted{color:#516178}.card{background:white;border:1px solid #dce4ef;border-radius:13px;padding:22px;margin:20px 0;box-shadow:0 3px 10px #18335405}.chips{display:flex;flex-wrap:wrap;gap:9px;margin:19px 0}.chip{background:#e4ebf7;border-radius:6px;padding:9px 12px;font-size:14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid .card{margin:0}.plot{height:420px;min-width:0}.scroll{overflow:auto;max-height:540px;border:1px solid #dce4ef;border-radius:8px}table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}th,td{padding:11px 13px;text-align:right;border-bottom:1px solid #e7ebf2}th{background:#edf2f9;position:sticky;top:0;z-index:1;color:#283d5b}th:first-child,td:first-child{text-align:left}tbody tr:hover{background:#f0f5ff}tr.e7{background:#eeebff;font-weight:600}button,input,select{font:inherit;border:1px solid #b8c6d9;border-radius:6px;padding:8px 11px;background:white;color:#253958}button{cursor:pointer}th button{font-weight:600;padding:0;border:0;background:none;font-size:13px}a{color:#2f54a2}.tools{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:15px 0}input{min-width:250px}.downloads a{display:inline-block;margin:5px 16px 5px 0;font-size:13px}details{line-height:1.65}summary{cursor:pointer;font-weight:600}.note{border-left:3px solid #7662b5;padding-left:13px}#status{font-size:13px;color:#466649}@media(max-width:850px){main{padding:15px}.grid{grid-template-columns:1fr}.card{padding:16px}.plot{height:360px}h1{font-size:25px}}@media print{.card{break-inside:avoid}.scroll{max-height:none}.tools{display:none}}
+</style>
+<script src="data:text/javascript;base64,@@VENDOR@@"></script>
+</head><body><main>
+<div class="eyebrow">Experimentos colaborativos · LightGBM</div>
+<h1>@@TITLE@@ · Comparación de imputaciones</h1>
+<p class="muted">E0–E6 y E7: imputación con ceros. Entrenamiento final de marzo a agosto de 2019; evaluación en octubre de 2019.</p>
+<div class="chips" id="chips"></div><div id="status" role="status">Cargando gráficos…</div>
+<section class="card"><h2>Métodos y condiciones de corrida</h2>
+<p>E0: NaN nativo; E1: media; E2: mediana; E3: moda; E4: forward fill causal por cliente; E5: IterativeImputer/BayesianRidge; E6 (E06 en los archivos): miceforest/LightGBM; <strong>E7: imputación por cero</strong>.</p>
+<p id="temporal"></p>
+<p class="note">E7 reemplaza null/NaN de las variables base por cero antes de calcular lags y deltas. La ausencia de historia para un lag conserva null. Las condiciones y los resultados originales de E0–E6 se reutilizan; sólo se entrenan las 30 semillas de E7 para cada experimento.</p>
+<details><summary>Selección congelada y evaluación</summary>
+<p>Los hiperparámetros, árboles y N provienen de la selección publicada de E0 de cada experimento. E7 no ejecuta Optuna ni selecciona N con octubre. Usa 30 semillas comunes, marzo–agosto y entrenamiento sin early stopping. E0 se seleccionó con entrenamiento marzo–junio y AUC en agosto; N se eligió con ganancia suavizada en agosto.</p>
+<p>La clase binaria agrupa BAJA+1 y BAJA+2. La ganancia remunera BAJA+2 con +$1.072.500 y penaliza los demás contactos con −$27.500. El ensamble promedia las 30 probabilidades y evalúa una única campaña al N congelado. Su ganancia puede diferir del promedio de las 30 ganancias.</p>
+<p>Las comparaciones por semilla usan Wilcoxon bilateral pareado con zero_method=zsplit y ajuste Holm para siete comparaciones frente a E0, separado por métrica. Esos p-valores se refieren a las semillas, no a la ganancia del ensamble ni a meses independientes. La comparación entre experimentos es descriptiva: también cambia su selección y N.</p>
+<pre id="selection" style="overflow:auto;font-size:12px"></pre>
+</details></section>
+<section class="card"><h2>Resultados del ensamble y promedio por semilla</h2>
+<p class="muted">Ganancias expresadas en millones de pesos. El promedio y desvío se calculan sobre las 30 semillas. Click en los encabezados para ordenar.</p>
+<div class="scroll"><table id="summary"><thead><tr id="summary-head"></tr></thead><tbody></tbody></table></div>
+</section>
+<div class="grid"><section class="card"><h2>AUC por semilla</h2><div id="auc" class="plot"></div></section>
+<section class="card"><h2>Ganancia por semilla al N congelado</h2><div id="gain" class="plot"></div></section></div>
+<section class="card"><h2>Ganancia acumulada del ensamble</h2><p class="muted">Curva sin suavizar, hasta el N congelado. Click en la leyenda para ocultar un método.</p><div id="gaincurve" class="plot"></div></section>
+<div class="grid"><section class="card"><h2>Lift de BAJA+2 del ensamble</h2><div id="lift" class="plot"></div></section>
+<section class="card"><h2>Precisión y recall de BAJA+2</h2><div id="pr" class="plot"></div></section></div>
+<section class="card" id="missing-panel"><h2>Porcentaje de NaN por variable: train y test</h2>
+<p>Variables base usadas por el modelo, después de la auditoría y antes de cualquier imputación o generación de lags. Se cuentan null y NaN. Train: marzo–agosto; test: octubre. El porcentaje se calcula sobre todas las filas de cada partición, sin promediar porcentajes mensuales. No incluye indicadores ni variables derivadas. Se excluyen <code>tmobile_app</code> y <code>cmobile_app_trx</code>.</p>
+<div class="grid"><div id="missing-scatter" class="plot"></div><div id="missing-bars" class="plot" style="height:570px"></div></div>
+<div class="tools"><label>Buscar variable <input id="search" type="search" placeholder="Nombre de la variable"></label><label>Ordenar <select id="missing-sort"><option value="pct_na_test">% NaN test ↓</option><option value="pct_na_train">% NaN train ↓</option><option value="variable">Variable A–Z</option></select></label><span id="missing-count"></span></div>
+<div class="scroll"><table id="missing-table"><thead><tr><th>Variable</th><th>NaN train (%)</th><th>Faltantes / filas train</th><th>NaN test (%)</th><th>Faltantes / filas test</th></tr></thead><tbody></tbody></table></div>
+</section>
+<section class="card"><h2>Datos y reproducibilidad</h2><div class="downloads" id="downloads"></div>
+<p class="muted">Los CSV descargables incluyen ocho métodos. Las predicciones anónimas de E7, las selecciones, los hashes de origen, el entorno y el código están en el ZIP de resultados; los datasets y modelos individuales no se publican en esta página.</p></section>
+</main>
+<script type="application/json" id="payload">@@DATA@@</script>
+<script>
+(() => {
+'use strict';
+const D=JSON.parse(document.getElementById('payload').textContent);
+const methods=['E0','E1','E2','E3','E4','E5','E06','E7'];
+const colors=['#354660','#1d8a73','#d18025','#ca5063','#7d68b4','#3181bc','#82634b','#663ed0'];
+const names={E0:'E0 · nativo',E1:'E1 · media',E2:'E2 · mediana',E3:'E3 · moda',E4:'E4 · forward fill',E5:'E5 · Ridge',E06:'E6 · miceforest',E7:'E7 · ceros'};
+const f=(v,n=3)=>Number(v).toLocaleString('es-AR',{minimumFractionDigits:n,maximumFractionDigits:n});
+const mean=a=>a.reduce((s,x)=>s+x,0)/a.length;
+const sd=a=>Math.sqrt(a.reduce((s,x)=>s+(x-mean(a))**2,0)/(a.length-1));
+const node=(tag,text,parent)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(parent)parent.appendChild(e);return e;};
+['30 semillas por método','8 métodos',D.selection.best_iteration+' árboles','N = '+f(D.selection.n_selected_valid,0),D.experiment==='Exp1'?'750 predictores':'1500 predictores'].forEach(x=>node('span',x,document.getElementById('chips')).className='chip');
+document.getElementById('selection').textContent=JSON.stringify(D.selection,null,2);
+document.getElementById('temporal').textContent=D.experiment==='Exp1'?'Exp1 conserva las variables base con sus lags y deltas de orden 1 y 2. No incorpora indicadores de ausencia.':'Exp2 conserva 150 indicadores originales de ausencia, calculados antes de imputar, y sus 300 lags y 300 deltas de 1 y 2 meses por mes calendario exacto. Los indicadores y sus derivados no se imputan. Las variables base mantienen sus lags y deltas originales.';
+const summary=D.summary.map(r=>{const s=D.seeds.filter(s=>s.method===r.method),g=s.map(x=>x.gain_at_n_fijo/1e6);return {...r,mean_gain:mean(g),sd_gain:sd(g),mean_auc:mean(s.map(x=>x.roc_auc)),gain_m:r.gain_at_n_fijo/1e6};});
+const headers=[['method','Método',v=>names[v]],['roc_auc','AUC ensamble',v=>f(v,5)],['gain_m','Ganancia ensamble ($M)',v=>f(v,3)],['mean_gain','Ganancia media ($M)',v=>f(v,3)],['sd_gain','Desvío ganancia ($M)',v=>f(v,3)],['baja2_capturadas_at_n_fijo','BAJA+2 ensamble',v=>f(v,0)],['mean_auc','AUC media',v=>f(v,5)],['p_holm_gain_vs_E0','p Holm ganancia semillas',v=>f(v,4)],['p_holm_auc_vs_E0','p Holm AUC semillas',v=>f(v,4)]];
+let summaryKey='method',ascending=true;
+function summaryTable(){const tbody=document.querySelector('#summary tbody');tbody.replaceChildren();[...summary].sort((a,b)=>(summaryKey==='method'?methods.indexOf(a.method)-methods.indexOf(b.method):a[summaryKey]-b[summaryKey])*(ascending?1:-1)).forEach(r=>{const tr=node('tr',undefined,tbody);if(r.method==='E7')tr.className='e7';headers.forEach(([k,l,fmt])=>node('td',fmt(r[k]),tr));});}
+headers.forEach(([k,l])=>{const th=node('th',undefined,document.getElementById('summary-head'));const b=node('button',l,th);b.addEventListener('click',()=>{ascending=summaryKey===k?!ascending:false;summaryKey=k;summaryTable();});});summaryTable();
+const config={responsive:true,displaylogo:false};
+const layout=(x,y)=>({paper_bgcolor:'white',plot_bgcolor:'white',font:{family:'system-ui',size:12,color:'#34445d'},margin:{t:15,r:25,b:65,l:75},xaxis:{title:x,gridcolor:'#e9edf4'},yaxis:{title:y,gridcolor:'#e9edf4'},legend:{orientation:'h',y:-.24},hovermode:'closest'});
+const promises=[];
+for(const [id,key,y] of [['auc','roc_auc','AUC binaria'],['gain','gain_at_n_fijo','Ganancia ($M)']]){
+ const traces=methods.map((m,i)=>({type:'box',name:names[m],y:D.seeds.filter(r=>r.method===m).map(r=>r[key]/(id==='gain'?1e6:1)),text:D.seeds.filter(r=>r.method===m).map(r=>'Semilla '+r.seed),boxpoints:'all',jitter:.28,pointpos:0,marker:{color:colors[i],size:4},line:{color:colors[i]},hovertemplate:'%{text}<br>%{y}<extra>%{fullData.name}</extra>'}));
+ promises.push(Plotly.newPlot(id,traces,{...layout('',y),showlegend:false},config));
+}
+for(const [id,key,y] of [['gaincurve','ganancia','Ganancia ($M)'],['lift','lift','Lift'],['pr','precision','Precisión']]){
+ const traces=methods.map((m,i)=>{const rows=D.curves.filter(r=>r.method===m).sort((a,b)=>a.envios-b.envios);return {type:'scatter',mode:'lines+markers',name:names[m],x:rows.map(r=>id==='pr'?r.recall:r.envios),y:rows.map(r=>r[key]/(id==='gaincurve'?1e6:1)),line:{color:colors[i],width:m==='E7'?3:2},marker:{size:4},customdata:rows.map(r=>r.envios),hovertemplate:'%{x}<br>%{y}<br>Envíos: %{customdata}<extra>%{fullData.name}</extra>'};});
+ promises.push(Plotly.newPlot(id,traces,layout(id==='pr'?'Recall':'Envíos',y),config));
+}
+promises.push(Plotly.newPlot('missing-scatter',[{type:'scatter',mode:'markers',x:D.missing.map(r=>r.pct_na_train),y:D.missing.map(r=>r.pct_na_test),text:D.missing.map(r=>r.variable),marker:{color:'#516bc4',size:7,opacity:.7},hovertemplate:'%{text}<br>Train: %{x:.2f}%<br>Test: %{y:.2f}%<extra></extra>'}],{...layout('NaN train (%)','NaN test (%)'),xaxis:{title:'NaN train (%)',range:[-2,102]},yaxis:{title:'NaN test (%)',range:[-2,102]},shapes:[{type:'line',x0:0,y0:0,x1:100,y1:100,line:{color:'#aab5c8',dash:'dot'}}]},config));
+const topMissing=[...D.missing].sort((a,b)=>Math.max(b.pct_na_train,b.pct_na_test)-Math.max(a.pct_na_train,a.pct_na_test)).slice(0,20).reverse();
+promises.push(Plotly.newPlot('missing-bars',['train','test'].map((role,i)=>({type:'bar',orientation:'h',name:role,x:topMissing.map(r=>r['pct_na_'+role]),y:topMissing.map(r=>r.variable),marker:{color:['#526bc1','#d18a44'][i]},hovertemplate:'%{y}<br>%{x:.2f}%<extra>%{fullData.name}</extra>'})),{...layout('NaN (%)',''),margin:{t:35,r:20,b:65,l:165},title:{text:'20 variables con mayor ausencia',font:{size:13}},barmode:'group',xaxis:{title:'NaN (%)',range:[0,100]}},config));
+function missingTable(){const term=document.getElementById('search').value.toLowerCase(),key=document.getElementById('missing-sort').value;const rows=D.missing.filter(r=>r.variable.toLowerCase().includes(term)).sort((a,b)=>key==='variable'?a.variable.localeCompare(b.variable):b[key]-a[key]);const tbody=document.querySelector('#missing-table tbody');tbody.replaceChildren();rows.forEach(r=>{const tr=node('tr',undefined,tbody);[r.variable,f(r.pct_na_train,2),f(r.n_na_train,0)+' / '+f(r.n_train,0),f(r.pct_na_test,2),f(r.n_na_test,0)+' / '+f(r.n_test,0)].forEach(v=>node('td',v,tr));});document.getElementById('missing-count').textContent=rows.length+' de '+D.missing.length+' variables';}
+document.getElementById('search').addEventListener('input',missingTable);document.getElementById('missing-sort').addEventListener('change',missingTable);missingTable();
+for(const [name,b64] of Object.entries(D.csv)){const a=node('a',name,document.getElementById('downloads'));a.href='data:text/csv;base64,'+b64;a.download=name;}
+Promise.all(promises).then(()=>{document.getElementById('status').textContent='8 métodos · gráficos listos · datos descargables';document.body.dataset.rendered='ok';}).catch(e=>{document.getElementById('status').textContent='Error de gráficos: '+e.message;document.body.dataset.rendered='error';});
+})();
+</script></body></html>

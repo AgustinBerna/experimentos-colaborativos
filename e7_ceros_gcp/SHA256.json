@@ -1,0 +1,19 @@
+{
+  "correr_e7.py": "09a0b5cba1ed8817554eb70acc2dbe851ba80b8712243014e568e0b08c878467",
+  "dashboard.py": "e05039b2b128bf24d91cc4326d21c3e7e4e0032a116cc7c188642f309ce48fa3",
+  "dashboard_template.html": "f1d9038f42fb75cb82929fab67e717ddfd1b77c9939d508425cf26cfe32dae7f",
+  "metricas.py": "4ca46ed8cef07d42cf027aacd0017d17940814ca7c59d2542c558b5c73e855c9",
+  "README.md": "c99855c17c0bc4f3bdbc449572331629ac629bb5932175e6f2a99fae76dae438",
+  "referencia/exp1/config.json": "e8c038623fa66ed285b14755bd92f7e1e0757713ea804265f9642e7b517eb7a8",
+  "referencia/exp1/fe_imputacion.py": "bc4923efebf936fd22e59ffb0c7c6e47f050c4be81be56506fdcde76418c5e0e",
+  "referencia/exp1/seleccion.json": "be509e137eda82a75e983d2ffba19e8c608d8da4eaa9a605ce435016359e89d6",
+  "referencia/exp2/04_modelar_evaluar.py": "46db4f1b7c88c9ebab0038b30a4eae14f955920f6491aec15362f47d91440570",
+  "referencia/exp2/config.json": "7fbebaa389deb34511ea13f5402e1ef2ec416ef686fa99d2555fd0f1a2ab7f4c",
+  "referencia/exp2/fe_imputacion.py": "c9594b80a8e701995d44b48020da07942a0cc4a4a09bc368d4562894e16b8e93",
+  "referencia/exp2/seleccion.json": "8950c2cd6806bf2becfe46ea5908ebbfc7ddb6967cd228c7a9fd15756325bf01",
+  "requirements.txt": "9740002e9a42d66648c31c8688657ed1a94e1fc767739cd3430aa98fc45e9e32",
+  "run_gcp.sh": "0eb57657df2eebe8c896d5dbb5aaf79250220fcbcd179fac42ab9da2988c2ba0",
+  "tests/test_e7.py": "d1158f45b7cc3a8d6b064eb89bb985aac58f79d0ccbe4adb206c84c3ec0b8246",
+  "vendor/plotly.min.js": "419deebe105f4c993feb7e6d1fe94fb1c2f7f98716db5d9b8fe3e37773838898",
+  "VERIFICACION.md": "05c12f86987b7952ca74667ea1ce2979c0e3e9b0a91bf769cad23ae4735f1632"
+}
