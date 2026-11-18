@@ -233,7 +233,7 @@ def make_figures(out,summary,seed_rows,tests):
     vals=[(lookup[('EXP1',m)]['gain_mean']-base)/1e6 for m in ff]
     ax.barh(range(len(ff)),vals,color=[COLORS[m] for m in ff]);ax.set_yticks(range(len(ff)),[LABELS[m] for m in ff]);ax.invert_yaxis()
     ax.axvline(0,color='#666',lw=.8);ax.set_xlabel('Δ ganancia media vs forward fill (M$)');ax.grid(axis='x',alpha=.15);ax.set_axisbelow(True)
-    for i,v in enumerate(vals):ax.text(v+(.03 if v>=0 else -.03),i,f'{v:+.2f}',ha='left' if v>=0 else 'right',va='center',fontsize=9)
+    for i,v in enumerate(vals):ax.text(v+(.03 if v>=0 else .04),i,f'{v:+.2f}',ha='left',va='center',fontsize=9,color='black' if v>=0 else 'white')
     fig.tight_layout();save(fig,'ff_delta_media')
     # Dispersión de modelos individuales, sin presentarla como incertidumbre temporal.
     rows=[r for r in summary if r['family']=='EXP1'];fig,ax=plt.subplots(figsize=(11.5,5))
