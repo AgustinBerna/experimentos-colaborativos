@@ -1,0 +1,9 @@
+family,method,source,n_seeds,max_auc_diff,max_gain_diff,verified
+EXP1,E0,mica_exp_missings_marzo_agosto,30,0.0,0.0,True
+EXP1,E4,mica_exp_missings_marzo_agosto,30,0.0,0.0,True
+EXP1,E0,flor_alineado,30,0.0,0.0,True
+EXP1,E4,flor_alineado,30,0.0,0.0,True
+EXP1,FF_MED_POST,flor_alineado,30,0.0,0.0,True
+EXP1,E0,flor_original,30,0.0,0.0,True
+EXP1,E4,flor_original,30,0.0,0.0,True
+EXP1,FF_ZERO,flor_original,30,0.0,0.0,True

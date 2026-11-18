@@ -14,3 +14,9 @@ Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de
 
 Metodologia: Busqueda de hiperparametros y número de envios solo con E0: entrenamiento marzo–junio y selección por AUC en agosto. El ganador E0 elige N por la meseta suavizada de ganancia de agosto. Luego cada método usa esos hiperparámetros, árboles y N de su E0. Después se realiza el entrenamiento final marzo–agosto con esa selección congelada. De esta manera lo único que cambian son los métodos de imputación dejando fijo lo demás.
 
+
+## Resultados colaborativos unificados
+
+**[Dashboard conjunto: Agustín, Micaela y Florencia](https://agustinberna.github.io/experimentos-colaborativos/consolidado.html)** · [Metodología, fuentes, CSV y reproducción](consolidado/).
+
+Incluye 26 combinaciones de método y familia, 780 evaluaciones por semilla, gráficos con definiciones comunes y Wilcoxon pareado con Holm. Los controles repetidos se verifican y cuentan una sola vez; marzo–junio se presenta separado de marzo–agosto. Código de los forks fijado mediante submódulos. Las comparaciones de ensambles por cliente de las extensiones FF quedan pendientes de recibir sus predicciones.

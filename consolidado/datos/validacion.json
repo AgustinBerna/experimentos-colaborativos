@@ -1,0 +1,239 @@
+{
+  "sources": [
+    {
+      "source": "agustin_EXP1",
+      "file": "consolidado/fuentes/agustin_EXP1/metricas_por_semilla_test.csv",
+      "sha256": "7944add95a1cda2f378d2248bbdafc3e90a9d44d2d89a9d73132342d695e9821"
+    },
+    {
+      "source": "agustin_EXP1",
+      "file": "consolidado/fuentes/agustin_EXP1/resumen_ensamble_test.csv",
+      "sha256": "38280550d6c3c7a96673c3f8e89f3223b71edff0cdc60a7c15cde215e5ef1bd9"
+    },
+    {
+      "source": "agustin_EXP2",
+      "file": "consolidado/fuentes/agustin_EXP2/metricas_por_semilla_test.csv",
+      "sha256": "77dba0b364520ebc0149d1b992dfa4d096d2f5f58a2fc0680c9b5a88d0a35b43"
+    },
+    {
+      "source": "agustin_EXP2",
+      "file": "consolidado/fuentes/agustin_EXP2/resumen_ensamble_test.csv",
+      "sha256": "27d176588bea8cb53e4efcbaa752d43a449721f68614ac78a59528aa22b4995b"
+    },
+    {
+      "source": "mica_exp_missings_marzo_agosto",
+      "file": "consolidado/fuentes/mica_exp_missings_marzo_agosto/exp_missings_marzo_agosto_resultados_metricas_por_semilla_test.csv",
+      "sha256": "850fa6c5fb331674ace4c1e4e968555be7140840b6b25787394248dc6755dd7d"
+    },
+    {
+      "source": "mica_exp_missings_marzo_agosto",
+      "file": "consolidado/fuentes/mica_exp_missings_marzo_agosto/exp_missings_marzo_agosto_resultados_resumen_ensamble_test.csv",
+      "sha256": "c1d1906228ef7b9082a427bd0c95c57897572a6c754137741b62a9d995cdc4d1"
+    },
+    {
+      "source": "mica_exp_missings_marzo_junio",
+      "file": "consolidado/fuentes/mica_exp_missings_marzo_junio/exp_missings_resultados_metricas_por_semilla_test.csv",
+      "sha256": "7e83f267739b4725cf8afbe444d08b4551a94497a25db3fdb18fe40c8ab52a34"
+    },
+    {
+      "source": "mica_exp_missings_marzo_junio",
+      "file": "consolidado/fuentes/mica_exp_missings_marzo_junio/exp_missings_resultados_resumen_ensamble_test.csv",
+      "sha256": "e05d2efde90b74f84035dfa1eeb66b19482e485ecd4b25d40695d7d9f4fac03c"
+    },
+    {
+      "source": "flor_alineado",
+      "file": "consolidado/fuentes/flor_alineado/metricas_por_semilla.csv",
+      "sha256": "c3919dcb2f693a3972f205fbbe92cabcc5d508bb536b3343eb5daed499201c70"
+    },
+    {
+      "source": "flor_alineado",
+      "file": "consolidado/fuentes/flor_alineado/resumen_florencia.csv",
+      "sha256": "c9441340d6d27775f8950366dec2ce385a826583b5beff9cfe69d1e8d084a9c7"
+    },
+    {
+      "source": "flor_original",
+      "file": "consolidado/fuentes/flor_original/metricas_por_semilla.csv",
+      "sha256": "fa8e36fa3adfd0643df41bced78aa1691d39c6e9a6b08361c4860e90a2eb2f25"
+    },
+    {
+      "source": "flor_original",
+      "file": "consolidado/fuentes/flor_original/resumen_florencia.csv",
+      "sha256": "534dae1e6710d83160129980c829439a42baa0122231896844ffcc363285b0a2"
+    }
+  ],
+  "families": {
+    "EXP1": {
+      "label": "Exp1 · marzo–agosto",
+      "train": [
+        201903,
+        201904,
+        201905,
+        201906,
+        201907,
+        201908
+      ],
+      "trees": 280,
+      "n": 4323,
+      "indicators": "Sin indicadores adicionales, salvo FF_IND"
+    },
+    "EXP2": {
+      "label": "Exp2 · indicadores y derivados",
+      "train": [
+        201903,
+        201904,
+        201905,
+        201906,
+        201907,
+        201908
+      ],
+      "trees": 361,
+      "n": 4352,
+      "indicators": "150 indicadores + 300 lags + 300 deltas"
+    },
+    "HIST_MJ": {
+      "label": "Histórico · marzo–junio",
+      "train": [
+        201903,
+        201904,
+        201905,
+        201906
+      ],
+      "trees": 280,
+      "n": 4323,
+      "indicators": "Sin indicadores adicionales, salvo FF_IND; árboles declarados por scripts"
+    }
+  },
+  "seed_values": [
+    100003,
+    100019,
+    100043,
+    100049,
+    100057,
+    100069,
+    100103,
+    100109,
+    100129,
+    100151,
+    100163,
+    100169,
+    100183,
+    100189,
+    100193,
+    100207,
+    100213,
+    100237,
+    100267,
+    100271,
+    100279,
+    100291,
+    100297,
+    100313,
+    100333,
+    100343,
+    100357,
+    100361,
+    100363,
+    100379
+  ],
+  "unique_methods": 26,
+  "seed_rows": 780,
+  "tests": 294,
+  "duplicate_controls_validated": [
+    {
+      "family": "EXP1",
+      "method": "E0",
+      "source": "mica_exp_missings_marzo_agosto",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "E4",
+      "source": "mica_exp_missings_marzo_agosto",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "E0",
+      "source": "flor_alineado",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "E4",
+      "source": "flor_alineado",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "FF_MED_POST",
+      "source": "flor_alineado",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "E0",
+      "source": "flor_original",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "E4",
+      "source": "flor_original",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    },
+    {
+      "family": "EXP1",
+      "method": "FF_ZERO",
+      "source": "flor_original",
+      "n_seeds": 30,
+      "max_auc_diff": 0.0,
+      "max_gain_diff": 0.0,
+      "verified": true
+    }
+  ],
+  "deduplicated_seed_rows": 240,
+  "statistics": {
+    "test": "paired two-sided Wilcoxon",
+    "zero_method": "zsplit",
+    "method": "auto",
+    "auc_difference_rounding_decimals": 12,
+    "gain_difference_rounding_decimals": 6,
+    "adjustment": "Holm separately by family, contrast set and metric",
+    "inferential_unit": "LightGBM seed conditional on the same October clients; not temporal replication"
+  },
+  "environment": {
+    "python": "3.13.9",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.10.7"
+  },
+  "limitations": [
+    "No cross-family significance tests: train/hyperparameters/N differ.",
+    "No ensemble/client-level tests for FF until predictions are supplied.",
+    "Mica FF limit=2 is a limit of consecutive null rows, not guaranteed calendar months.",
+    "Median before FF and median after FF are separate methods.",
+    "Historical March-June configuration has published CSV and scripts, but no complete run identity in ZIP.",
+    "Ridge parameter variants and business rules remain pending verified result files."
+  ]
+}

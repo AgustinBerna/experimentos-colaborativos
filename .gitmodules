@@ -1,0 +1,6 @@
+[submodule "fuentes/experimentos-colab-mica"]
+ path = fuentes/experimentos-colab-mica
+ url = https://github.com/AgustinBerna/experimentos-colab-mica.git
+[submodule "fuentes/experimento-colab-flor"]
+ path = fuentes/experimento-colab-flor
+ url = https://github.com/AgustinBerna/experimento-colab-flor.git

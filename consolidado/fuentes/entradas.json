@@ -1,0 +1,92 @@
+[
+  {
+    "family": "EXP1",
+    "source": "agustin_EXP1",
+    "seed_csv": "agustin_EXP1/metricas_por_semilla_test.csv",
+    "ensemble_csv": "agustin_EXP1/resumen_ensamble_test.csv",
+    "mapping": {
+      "E0": "E0",
+      "E1": "E1",
+      "E2": "E2",
+      "E3": "E3",
+      "E4": "E4",
+      "E5": "E5",
+      "E06": "E6",
+      "E7": "ZERO"
+    },
+    "flor": false
+  },
+  {
+    "family": "EXP2",
+    "source": "agustin_EXP2",
+    "seed_csv": "agustin_EXP2/metricas_por_semilla_test.csv",
+    "ensemble_csv": "agustin_EXP2/resumen_ensamble_test.csv",
+    "mapping": {
+      "E0": "E0",
+      "E1": "E1",
+      "E2": "E2",
+      "E3": "E3",
+      "E4": "E4",
+      "E5": "E5",
+      "E06": "E6",
+      "E7": "ZERO"
+    },
+    "flor": false
+  },
+  {
+    "family": "EXP1",
+    "source": "mica_exp_missings_marzo_agosto",
+    "seed_csv": "mica_exp_missings_marzo_agosto/exp_missings_marzo_agosto_resultados_metricas_por_semilla_test.csv",
+    "ensemble_csv": "mica_exp_missings_marzo_agosto/exp_missings_marzo_agosto_resultados_resumen_ensamble_test.csv",
+    "mapping": {
+      "E0": "E0",
+      "E4": "E4",
+      "E9": "FF_IND",
+      "E10": "FF_MED_POST",
+      "E12": "FF_LIMIT2ROWS"
+    },
+    "flor": false
+  },
+  {
+    "family": "HIST_MJ",
+    "source": "mica_exp_missings_marzo_junio",
+    "seed_csv": "mica_exp_missings_marzo_junio/exp_missings_resultados_metricas_por_semilla_test.csv",
+    "ensemble_csv": "mica_exp_missings_marzo_junio/exp_missings_resultados_resumen_ensamble_test.csv",
+    "mapping": {
+      "E0": "E0",
+      "E4": "E4",
+      "E9": "FF_IND",
+      "E10": "FF_MED_POST",
+      "E12": "FF_LIMIT2ROWS"
+    },
+    "flor": false
+  },
+  {
+    "family": "EXP1",
+    "source": "flor_alineado",
+    "seed_csv": "flor_alineado/metricas_por_semilla.csv",
+    "ensemble_csv": "flor_alineado/resumen_florencia.csv",
+    "mapping": {
+      "E0": "E0",
+      "E4": "E4",
+      "FF_ZERO": "FF_ZERO",
+      "FF_MEDIAN_MICA": "FF_MED_POST",
+      "FF_MEDIAN": "FF_MED_PRE"
+    },
+    "flor": true
+  },
+  {
+    "family": "EXP1",
+    "source": "flor_original",
+    "seed_csv": "flor_original/metricas_por_semilla.csv",
+    "ensemble_csv": "flor_original/resumen_florencia.csv",
+    "mapping": {
+      "E0": "E0",
+      "E4": "E4",
+      "FF_ZERO": "FF_ZERO",
+      "FF_MEDIAN_MICA": "FF_MED_POST",
+      "FF_MEDIAN": "FF_MED_PRE"
+    },
+    "flor": true
+  }
+]
