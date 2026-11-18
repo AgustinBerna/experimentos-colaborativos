@@ -14,12 +14,3 @@ Ambas corridas entrenan finalmente y ajustan imputadores con **marzo–agosto de
 
 Metodologia: Busqueda de hiperparametros y número de envios solo con E0: entrenamiento marzo–junio y selección por AUC en agosto. El ganador E0 elige N por la meseta suavizada de ganancia de agosto. Luego cada método usa esos hiperparámetros, árboles y N de su E0. Después se realiza el entrenamiento final marzo–agosto con esa selección congelada. De esta manera lo único que cambian son los métodos de imputación dejando fijo lo demás.
 
-Cada carpeta incluye resultados CSV, dashboard autocontenido
-
-## GitHub Pages
-
-La portada está en docs/index.html. Exp1 se mantiene en exp1.html; Exp2 en exp2-marzo-agosto.html, con los alias exp2.html y dashboard_indicadores_v3.html. El workflow de Pages publica docs al actualizar main.
-
-## E7: imputación por cero
-
-Se incorpora E7 con las mismas 30 semillas y la selección congelada de cada experimento, sin repetir Optuna ni reentrenar E0–E6. [Código y ejecución en GCP](e7_ceros_gcp/README.md). Los dashboards incluyen ocho métodos y porcentaje de NaN por variable en train/test. Holm se recalculó con siete alternativas por métrica.
